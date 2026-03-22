@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>仪表盘 | Dashboard</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40:400;500;600;700&family=Noto+Serif+SC:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #faf9f7;
+            --bg-card: #ffffff;
+            --bg-dark: #1a1a2e;
+            --text-primary: #1a1a2e;
+            --text-secondary: #6b7280;
+            --text-muted: #9ca3af;
+            --accent-amber: #f4a261;
+            --accent-coral: #e76f51;
+            --accent-teal: #2a9d8f;
+            --accent-violet: #7c3aed;
+            --border-subtle: rgba(26, 26, 46, 0.08);
+            --shadow-sm: 0 1px 2px rgba(26, 26, 46, 0.04);
+            --shadow-md: 0 4px 12px rgba(26, 26, 46, 0.08);
+            --shadow-lg: 0 12px 32px rgba(26, 26, 46, 0.12);
+            --radius-sm: 6px;
+            --radius-md: 12px;
+            --radius-lg: 20px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-primary);
+            min-height: 100vh;
+            color: var(--text-primary);
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* Subtle noise texture */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.03;
+            pointer-events: none;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 40px;
+        }
+
+        /* Header */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 48px;
+            animation: fadeSlideDown 0.6s ease-out;
+        }
+
+        .header-left h1 {
+            font-family: 'Noto Serif SC', serif;
+            font-size: 32px;
+            font-weight: 600;
+            color: var(--text-primary);
+            letter-spacing: -0.5px;
+            margin-bottom: 6px;
+        }
+
+        .header-left p {
+            font-size: 14px;
+            color: var(--text-secondary);
+        }
+
+        .header-actions {
+            display: flex;
+            gap: 12px;
+        }
+
+        .btn {
+            padding: 12px 20px;
+            border-radius: var(--radius-sm);
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            border: none;
+            transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+            font-family: inherit;
+        }
+
+        .btn-primary {
+            background: var(--text-primary);
+            color: white;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .btn-secondary {
+            background: var(--bg-card);
+            color: var(--text-primary);
+            border: 1.5px solid var(--border-subtle);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--text-primary);
+        }
+
+        /* Stats Grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+            margin-bottom: 32px;
+        }
+
+        .stat-card {
+            background: var(--bg-card);
+            border-radius: var(--radius-lg);
+            padding: 28px;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border-subtle);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            animation: fadeSlideUp 0.6s ease-out backwards;
+        }
+
+        .stat-card:nth-child(1) { animation-delay: 0.1s; }
+        .stat-card:nth-child(2) { animation-delay: 0.15s; }
+        .stat-card:nth-child(3) { animation-delay: 0.2s; }
+        .stat-card:nth-child(4) { animation-delay: 0.25s; }
+
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--accent-amber);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s ease;
+        }
+
+        .stat-card:nth-child(2)::before { background: var(--accent-coral); }
+        .stat-card:nth-child(3)::before { background: var(--accent-teal); }
+        .stat-card:nth-child(4)::before { background: var(--accent-violet); }
+
+        .stat-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .stat-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .stat-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 20px;
+        }
+
+        .stat-label {
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .stat-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: var(--radius-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            position: relative;
+        }
+
+        .stat-icon.amber {
+            background: linear-gradient(135deg, #f4a26120, #f4a26110);
+            color: var(--accent-amber);
+        }
+
+        .stat-icon.coral {
+            background: linear-gradient(135deg, #e76f5120, #e76f5110);
+            color: var(--accent-coral);
+        }
+
+        .stat-icon.teal {
+            background: linear-gradient(135deg, #2a9d8f20, #2a9d8f10);
+            color: var(--accent-teal);
+        }
+
+        .stat-icon.violet {
+            background: linear-gradient(135deg, #7c3aed20, #7c3aed10);
+            color: var(--accent-violet);
+        }
+
+        .stat-value {
+            font-family: 'Noto Serif SC', serif;
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 8px;
+            line-height: 1.1;
+        }
+
+        .stat-change {
+            font-size: 13px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-weight: 500;
+        }
+
+        .stat-change.up { color: var(--accent-teal); }
+        .stat-change.down { color: var(--accent-coral); }
+
+        /* Charts Grid */
+        .charts-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 24px;
+            margin-bottom: 32px;
+            align-items: stretch;
+        }
+
+        .chart-card {
+            min-height: 380px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .chart-card canvas {
+            flex: 1;
+            max-height: 280px;
+        }
+
+        .chart-card {
+            background: var(--bg-card);
+            border-radius: var(--radius-lg);
+            padding: 28px;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border-subtle);
+            animation: fadeSlideUp 0.6s ease-out 0.3s backwards;
+        }
+
+        .chart-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 28px;
+        }
+
+        .chart-title {
+            font-family: 'Noto Serif SC', serif;
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .chart-tabs {
+            display: flex;
+            gap: 4px;
+            background: var(--bg-primary);
+            padding: 4px;
+            border-radius: var(--radius-sm);
+        }
+
+        .chart-tab {
+            padding: 8px 16px;
+            border-radius: 4px;
+            font-size: 13px;
+            cursor: pointer;
+            border: none;
+            background: transparent;
+            color: var(--text-secondary);
+            font-weight: 500;
+            font-family: inherit;
+            transition: all 0.2s ease;
+        }
+
+        .chart-tab.active {
+            background: var(--bg-card);
+            color: var(--text-primary);
+            box-shadow: var(--shadow-sm);
+        }
+
+        /* Table */
+        .table-card {
+            background: var(--bg-card);
+            border-radius: var(--radius-lg);
+            padding: 28px;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border-subtle);
+            animation: fadeSlideUp 0.6s ease-out 0.4s backwards;
+        }
+
+        .table-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 24px;
+        }
+
+        .table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+        }
+
+        .table th {
+            text-align: left;
+            padding: 14px 16px;
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-bottom: 1.5px solid var(--border-subtle);
+            background: var(--bg-primary);
+        }
+
+        .table th:first-child {
+            border-radius: var(--radius-sm) 0 0 var(--radius-sm);
+        }
+
+        .table th:last-child {
+            border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+        }
+
+        .table td {
+            padding: 18px 16px;
+            font-size: 14px;
+            color: var(--text-primary);
+            border-bottom: 1px solid var(--border-subtle);
+            vertical-align: middle;
+        }
+
+        .table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .table tr {
+            transition: background 0.2s ease;
+        }
+
+        .table tbody tr:hover {
+            background: var(--bg-primary);
+        }
+
+        .status-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .status-badge::before {
+            content: '';
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+        }
+
+        .status-badge.completed {
+            background: rgba(42, 157, 143, 0.1);
+            color: var(--accent-teal);
+        }
+
+        .status-badge.completed::before {
+            background: var(--accent-teal);
+        }
+
+        .status-badge.pending {
+            background: rgba(244, 162, 97, 0.15);
+            color: #c2410c;
+        }
+
+        .status-badge.pending::before {
+            background: var(--accent-amber);
+        }
+
+        .status-badge.processing {
+            background: rgba(124, 58, 237, 0.1);
+            color: var(--accent-violet);
+        }
+
+        .status-badge.processing::before {
+            background: var(--accent-violet);
+        }
+
+        .customer-cell {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .customer-avatar {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 13px;
+            font-weight: 600;
+            flex-shrink: 0;
+        }
+
+        .order-id {
+            font-family: 'DM Sans', monospace;
+            font-weight: 600;
+            color: var(--text-secondary);
+            font-size: 13px;
+        }
+
+        .amount {
+            font-weight: 600;
+            font-family: 'DM Sans', monospace;
+        }
+
+        /* Animations */
+        @keyframes fadeSlideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeSlideUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 1200px) {
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .charts-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 24px;
+            }
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+            .header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 20px;
+            }
+            .header-left h1 {
+                font-size: 26px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <div class="header-left">
+                <h1>仪表盘</h1>
+                <p>欢迎回来，这是您今天的数据概览</p>
+            </div>
+            <div class="header-actions">
+                <button class="btn btn-secondary">导出数据</button>
+                <button class="btn btn-primary">+ 新建订单</button>
+            </div>
+        </div>
+
+        <!-- Stats Cards -->
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-header">
+                    <span class="stat-label">总销售额</span>
+                    <div class="stat-icon amber">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+                        </svg>
+                    </div>
+                </div>
+                <div class="stat-value">¥128,430</div>
+                <div class="stat-change up">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                        <path d="M18 15l-6-6-6 6"/>
+                    </svg>
+                    12.5% 较上周
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-header">
+                    <span class="stat-label">订单数量</span>
+                    <div class="stat-icon coral">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/>
+                            <line x1="3" y1="6" x2="21" y2="6"/>
+                            <path d="M16 10a4 4 0 0 1-8 0"/>
+                        </svg>
+                    </div>
+                </div>
+                <div class="stat-value">1,284</div>
+                <div class="stat-change up">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                        <path d="M18 15l-6-6-6 6"/>
+                    </svg>
+                    8.2% 较上周
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-header">
+                    <span class="stat-label">客户数量</span>
+                    <div class="stat-icon teal">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                            <circle cx="9" cy="7" r="4"/>
+                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                        </svg>
+                    </div>
+                </div>
+                <div class="stat-value">9,630</div>
+                <div class="stat-change down">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                        <path d="M6 9l6 6 6-6"/>
+                    </svg>
+                    2.1% 较上周
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-header">
+                    <span class="stat-label">转化率</span>
+                    <div class="stat-icon violet">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+                        </svg>
+                    </div>
+                </div>
+                <div class="stat-value">24.8%</div>
+                <div class="stat-change up">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                        <path d="M18 15l-6-6-6 6"/>
+                    </svg>
+                    4.3% 较上周
+                </div>
+            </div>
+        </div>
+
+        <!-- Charts -->
+        <div class="charts-grid">
+            <div class="chart-card">
+                <div class="chart-header">
+                    <h3 class="chart-title">销售趋势</h3>
+                    <div class="chart-tabs">
+                        <button class="chart-tab active">日</button>
+                        <button class="chart-tab">周</button>
+                        <button class="chart-tab">月</button>
+                    </div>
+                </div>
+                <canvas id="salesChart"></canvas>
+            </div>
+            <div class="chart-card">
+                <div class="chart-header">
+                    <h3 class="chart-title">类别分布</h3>
+                </div>
+                <canvas id="categoryChart"></canvas>
+            </div>
+        </div>
+
+        <!-- Recent Orders Table -->
+        <div class="table-card">
+            <div class="table-header">
+                <h3 class="chart-title">最近订单</h3>
+                <button class="btn btn-secondary">查看全部</button>
+            </div>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>订单编号</th>
+                        <th>客户</th>
+                        <th>产品</th>
+                        <th>金额</th>
+                        <th>状态</th>
+                        <th>日期</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><span class="order-id">#ORD-7829</span></td>
+                        <td>
+                            <div class="customer-cell">
+                                <div class="customer-avatar" style="background: linear-gradient(135deg, #f4a261, #e76f51);">陈</div>
+                                陈小明
+                            </div>
+                        </td>
+                        <td>iPhone 15 Pro</td>
+                        <td class="amount">¥8,999</td>
+                        <td><span class="status-badge completed">已完成</span></td>
+                        <td>2024-03-20</td>
+                    </tr>
+                    <tr>
+                        <td><span class="order-id">#ORD-7828</span></td>
+                        <td>
+                            <div class="customer-cell">
+                                <div class="customer-avatar" style="background: linear-gradient(135deg, #2a9d8f, #264653);">张</div>
+                                张丽
+                            </div>
+                        </td>
+                        <td>MacBook Air M3</td>
+                        <td class="amount">¥9,499</td>
+                        <td><span class="status-badge processing">处理中</span></td>
+                        <td>2024-03-20</td>
+                    </tr>
+                    <tr>
+                        <td><span class="order-id">#ORD-7827</span></td>
+                        <td>
+                            <div class="customer-cell">
+                                <div class="customer-avatar" style="background: linear-gradient(135deg, #7c3aed, #5b21b6);">李</div>
+                                李华
+                            </div>
+                        </td>
+                        <td>AirPods Pro 2</td>
+                        <td class="amount">¥1,899</td>
+                        <td><span class="status-badge pending">待付款</span></td>
+                        <td>2024-03-19</td>
+                    </tr>
+                    <tr>
+                        <td><span class="order-id">#ORD-7826</span></td>
+                        <td>
+                            <div class="customer-cell">
+                                <div class="customer-avatar" style="background: linear-gradient(135deg, #ec4899, #be185d);">王</div>
+                                王伟
+                            </div>
+                        </td>
+                        <td>iPad Pro 12.9</td>
+                        <td class="amount">¥9,999</td>
+                        <td><span class="status-badge completed">已完成</span></td>
+                        <td>2024-03-19</td>
+                    </tr>
+                    <tr>
+                        <td><span class="order-id">#ORD-7825</span></td>
+                        <td>
+                            <div class="customer-cell">
+                                <div class="customer-avatar" style="background: linear-gradient(135deg, #06b6d4, #0891b2);">赵</div>
+                                赵敏
+                            </div>
+                        </td>
+                        <td>Apple Watch S9</td>
+                        <td class="amount">¥3,299</td>
+                        <td><span class="status-badge completed">已完成</span></td>
+                        <td>2024-03-18</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        // Chart.js global defaults
+        Chart.defaults.font.family = "'DM Sans', sans-serif";
+        Chart.defaults.color = '#6b7280';
+
+        // Sales Chart
+        const salesCtx = document.getElementById('salesChart').getContext('2d');
+        const salesGradient = salesCtx.createLinearGradient(0, 0, 0, 300);
+        salesGradient.addColorStop(0, 'rgba(244, 162, 97, 0.25)');
+        salesGradient.addColorStop(1, 'rgba(244, 162, 97, 0)');
+
+        new Chart(salesCtx, {
+            type: 'line',
+            data: {
+                labels: ['周一', '周二', '周三', '周四', '周五', '周六', '周日'],
+                datasets: [{
+                    label: '销售额',
+                    data: [12400, 15900, 18200, 14800, 21300, 24600, 22100],
+                    borderColor: '#f4a261',
+                    backgroundColor: salesGradient,
+                    fill: true,
+                    tension: 0.4,
+                    pointBackgroundColor: '#f4a261',
+                    pointBorderColor: '#fff',
+                    pointBorderWidth: 3,
+                    pointRadius: 5,
+                    pointHoverRadius: 7,
+                    borderWidth: 3
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        display: false
+                    },
+                    tooltip: {
+                        backgroundColor: '#1a1a2e',
+                        titleColor: '#fff',
+                        bodyColor: '#fff',
+                        padding: 12,
+                        cornerRadius: 8,
+                        displayColors: false,
+                        callbacks: {
+                            label: function(context) {
+                                return '¥' + context.parsed.y.toLocaleString();
+                            }
+                        }
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        grid: {
+                            color: 'rgba(26, 26, 46, 0.06)'
+                        },
+                        ticks: {
+                            callback: function(value) {
+                                return '¥' + (value / 1000) + 'k';
+                            },
+                            padding: 12
+                        },
+                        border: {
+                            display: false
+                        }
+                    },
+                    x: {
+                        grid: {
+                            display: false
+                        },
+                        ticks: {
+                            padding: 8
+                        },
+                        border: {
+                            display: false
+                        }
+                    }
+                },
+                interaction: {
+                    intersect: false,
+                    mode: 'index'
+                }
+            }
+        });
+
+        // Category Chart
+        const categoryCtx = document.getElementById('categoryChart').getContext('2d');
+        new Chart(categoryCtx, {
+            type: 'doughnut',
+            data: {
+                labels: ['电子产品', '服装', '食品', '家居', '其他'],
+                datasets: [{
+                    data: [35, 25, 18, 12, 10],
+                    backgroundColor: [
+                        '#f4a261',
+                        '#e76f51',
+                        '#2a9d8f',
+                        '#7c3aed',
+                        '#9ca3af'
+                    ],
+                    borderWidth: 0,
+                    hoverOffset: 8
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'bottom',
+                        labels: {
+                            padding: 20,
+                            usePointStyle: true,
+                            pointStyle: 'circle',
+                            font: {
+                                size: 12
+                            }
+                        }
+                    },
+                    tooltip: {
+                        backgroundColor: '#1a1a2e',
+                        titleColor: '#fff',
+                        bodyColor: '#fff',
+                        padding: 12,
+                        cornerRadius: 8,
+                        displayColors: true
+                    }
+                },
+                cutout: '65%',
+                animation: {
+                    animateRotate: true,
+                    animateScale: true
+                }
+            }
+        });
+
+        // Tab switching with animation
+        document.querySelectorAll('.chart-tab').forEach(tab => {
+            tab.addEventListener('click', function() {
+                document.querySelectorAll('.chart-tab').forEach(t => t.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>
