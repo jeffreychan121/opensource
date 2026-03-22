@@ -21,5 +21,5 @@ MINIMAX_MODEL_NAME = "MiniMax-M2.5"
 MODEL_NAME = DEEPSEEK_MODEL_NAME
 
 # Odoo 配置
-BASE_URL = "http://localhost:8070"
+BASE_URL = "http://localhost:8069"
 API_KEY = "guyaxin"

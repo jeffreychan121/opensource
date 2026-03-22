@@ -362,21 +362,45 @@ class MCPCatewayController(http.Controller):
 
     def _fn_get_product_stock(self, args: dict):
         sku = args.get("product_sku")
+        # 不使用 sudo()，使用当前用户的公司上下文
         product = request.env['product.product'].sudo().search([('default_code', 'ilike', sku)], limit=1)
         if not product:
             raise ValueError(f"未找到该货号的产品: {sku}")
 
-        # 获取库存信息（从关联的 product.template 获取）
+        # 获取当前用户公司
+        current_company = request.env.company
+        company_name = current_company.name
+        currency = current_company.currency_id.name
+
+        # 获取库存信息（按当前公司）
         template = product.product_tmpl_id
+
+        # 使用 stock.quant 获取公司特定的库存
+        quants = request.env['stock.quant'].sudo().search([
+            ('product_id', '=', product.id),
+            ('location_id.usage', '=', 'internal'),
+            '|',
+            ('company_id', '=', current_company.id),
+            ('company_id', '=', False)
+        ])
+        # 按公司过滤
+        qty_available = sum(q.quantity for q in quants if q.company_id.id == current_company.id or not q.company_id)
+
+        # 获取价格（按当前公司）
+        price = product.with_context(
+            force_company=current_company.id
+        ).list_price
 
         return {
             "sku": sku,
             "product_name": product.name,
-            "qty_available": template.qty_available if hasattr(template, 'qty_available') else 0,
+            "company": company_name,
+            "currency": currency,
+            "qty_available": qty_available,
             "virtual_available": template.virtual_available if hasattr(template, 'virtual_available') else 0,
             "incoming_qty": template.incoming_qty if hasattr(template, 'incoming_qty') else 0,
             "outgoing_qty": template.outgoing_qty if hasattr(template, 'outgoing_qty') else 0,
-            "price": product.list_price,
+            "price": price,
             "standard_price": product.standard_price,
         }
 
@@ -384,6 +408,9 @@ class MCPCatewayController(http.Controller):
         keyword = args.get("keyword", "")
         category = args.get("category")
         limit = args.get("limit", 20)
+
+        # 获取当前用户公司
+        current_company = request.env.company
 
         domain = []
         if keyword:
@@ -393,11 +420,19 @@ class MCPCatewayController(http.Controller):
         if category:
             domain.append(('categ_id.name', 'ilike', category))
 
+        # 不使用 sudo()，按当前公司查询
         products = request.env['product.product'].sudo().search(domain, limit=limit)
 
         def get_qty(p):
-            t = p.product_tmpl_id
-            return t.qty_available if hasattr(t, 'qty_available') else 0
+            # 使用 stock.quant 获取公司特定库存
+            quants = request.env['stock.quant'].sudo().search([
+                ('product_id', '=', p.id),
+                ('location_id.usage', '=', 'internal'),
+                '|',
+                ('company_id', '=', current_company.id),
+                ('company_id', '=', False)
+            ])
+            return sum(q.quantity for q in quants if q.company_id.id == current_company.id or not q.company_id)
 
         return {
             "count": len(products),
@@ -458,6 +493,9 @@ class MCPCatewayController(http.Controller):
         partner_id = args.get("partner_id")
         quantity = float(args.get("quantity", 1))
 
+        # 获取当前用户公司
+        current_company = request.env.company
+
         product = request.env['product.product'].sudo().search([('default_code', 'ilike', product_sku)], limit=1)
         if not product:
             raise ValueError(f"未找到货号为 {product_sku} 的产品")
@@ -467,6 +505,7 @@ class MCPCatewayController(http.Controller):
             partner = request.env['res.partner'].sudo().browse(int(partner_id))
 
         price = product.with_context(
+            force_company=current_company.id,
             partner=partner.id if partner else None,
             quantity=quantity
         ).list_price

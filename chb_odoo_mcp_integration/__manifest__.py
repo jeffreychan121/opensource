@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 # author: chb
+
 {
     'name': "CHB Odoo MCP Integration",
     'summary': "Expose Odoo ERP functions as MCP function tools",

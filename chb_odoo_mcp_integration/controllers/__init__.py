@@ -2,5 +2,4 @@
 # author: chb
 
 from . import controllers
-from . import message_post
 from . import mcp

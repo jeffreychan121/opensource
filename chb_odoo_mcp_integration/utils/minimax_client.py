@@ -60,15 +60,15 @@ class LLMChatClient:
     def chat(self, user_input: str):
         _logger.info(f"==================== LLM 调用开始 ====================")
         _logger.info(f"用户输入: {user_input}")
-        _logger.info(f"当前消息历史数量: {len(self.messages)}")
 
-        self.messages.append({"role": "user", "content": user_input})
+        # 每次只发送当前用户输入，不累积历史
+        messages = [{"role": "system", "content": "You are a helpful assistant. 只回答用户当前的问题，不要复述对话历史。"}, {"role": "user", "content": user_input}]
 
-        _logger.info(f"发送消息给 AI: {json.dumps(self.messages, ensure_ascii=False, indent=2)}")
+        _logger.info(f"发送消息给 AI: {json.dumps(messages, ensure_ascii=False, indent=2)}")
 
         response = self.client.chat.completions.create(
             model=self.model,
-            messages=self.messages,
+            messages=messages,
             tools=get_function_schema(),
             tool_choice="auto"
         )
@@ -96,25 +96,23 @@ class LLMChatClient:
                     "content": json.dumps(result)
                 }
 
-                self.messages.append(message.model_dump())
-                self.messages.append(tool_response)
+                messages.append(message.model_dump())
+                messages.append(tool_response)
 
                 _logger.info(f"进行第二次 LLM 调用，获取最终回复")
 
                 final_response = self.client.chat.completions.create(
                     model=self.model,
-                    messages=self.messages
+                    messages=messages
                 )
                 final_reply = final_response.choices[0].message.content
                 _logger.info(f"最终回复: {final_reply}")
 
-                self.messages.append({"role": "assistant", "content": final_reply})
                 _logger.info(f"==================== LLM 调用结束 ====================\n")
                 return final_reply
         else:
             reply = message.content
             _logger.info(f"AI 直接回复（无工具调用）: {reply}")
-            self.messages.append({"role": "assistant", "content": reply})
             _logger.info(f"==================== LLM 调用结束 ====================\n")
             return reply
 
