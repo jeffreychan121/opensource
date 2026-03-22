@@ -1,0 +1,17 @@
+<odoo>
+  <data>
+<!--
+    <record model="ir.ui.view" id="web_login_extension.list">
+      <field name="name">web_login_extension list</field>
+      <field name="model">web_login_extension.web_login_extension</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="value"/>
+          <field name="value2"/>
+        </tree>
+      </field>
+    </record>
+-->
+  </data>
+</odoo>
