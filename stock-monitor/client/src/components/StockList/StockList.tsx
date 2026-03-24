@@ -24,6 +24,77 @@ function getPriceClass(change: number): string {
   return 'stock-neutral';
 }
 
+interface StockCardProps {
+  stock: Stock;
+}
+
+const StockCard: React.FC<StockCardProps> = ({ stock }) => {
+  const priceClass = getPriceClass(stock.change);
+  const isUp = stock.change > 0;
+  const isDown = stock.change < 0;
+
+  return (
+    <div className="stock-card">
+      <div className="stock-card-header">
+        <div className="stock-info">
+          <span className="stock-code">{stock.code}</span>
+          <span className="stock-name">{stock.name}</span>
+        </div>
+        <div className={`stock-change-badge ${priceClass}`}>
+          {stock.changePercent > 0 ? '+' : ''}
+          {stock.changePercent.toFixed(2)}%
+        </div>
+      </div>
+
+      <div className="stock-card-body">
+        <div className="stock-price-section">
+          <span className={`stock-price ${priceClass}`}>
+            {stock.price.toFixed(2)}
+          </span>
+          <span className={`stock-change ${priceClass}`}>
+            {stock.change > 0 ? '+' : ''}{stock.change.toFixed(2)}
+          </span>
+        </div>
+
+        <div className="stock-details">
+          <div className="stock-detail">
+            <span className="detail-label">开盘</span>
+            <span className="detail-value">{stock.open.toFixed(2)}</span>
+          </div>
+          <div className="stock-detail">
+            <span className="detail-label">最高</span>
+            <span className="detail-value">{stock.high.toFixed(2)}</span>
+          </div>
+          <div className="stock-detail">
+            <span className="detail-label">最低</span>
+            <span className="detail-value">{stock.low.toFixed(2)}</span>
+          </div>
+        </div>
+
+        <div className="stock-stats">
+          <div className="stock-stat">
+            <span className="stat-label">成交量</span>
+            <span className="stat-value">{formatNumber(stock.volume)}</span>
+          </div>
+          <div className="stock-stat">
+            <span className="stat-label">成交额</span>
+            <span className="stat-value">{formatNumber(stock.amount)}万</span>
+          </div>
+        </div>
+      </div>
+
+      <div className="stock-card-footer">
+        <div className={`trend-indicator ${isUp ? 'up' : isDown ? 'down' : 'neutral'}`}>
+          <span className="trend-arrow">{isUp ? '↑' : isDown ? '↓' : '─'}</span>
+          <span className="trend-text">
+            {isUp ? '上涨' : isDown ? '下跌' : '持平'}
+          </span>
+        </div>
+      </div>
+    </div>
+  );
+};
+
 export const StockList: React.FC<StockListProps> = ({
   stocks,
   loading,
@@ -69,7 +140,7 @@ export const StockList: React.FC<StockListProps> = ({
     <div className="stock-list">
       <div className="stock-list-header">
         <h1 className="stock-list-title">股票行情监控</h1>
-        <div>
+        <div className="header-actions">
           <button
             className={`sort-btn ${sortOrder === 'asc' ? 'active' : ''}`}
             onClick={() => onSortChange('asc')}
@@ -79,53 +150,17 @@ export const StockList: React.FC<StockListProps> = ({
           <button
             className={`sort-btn ${sortOrder === 'desc' ? 'active' : ''}`}
             onClick={() => onSortChange('desc')}
-            style={{ marginLeft: '8px' }}
           >
             涨幅降序
           </button>
         </div>
       </div>
 
-      <table className="stock-table">
-        <thead>
-          <tr>
-            <th>代码</th>
-            <th>名称</th>
-            <th>当前价</th>
-            <th>涨跌额</th>
-            <th>涨跌幅</th>
-            <th>成交量(手)</th>
-            <th>成交额(万)</th>
-          </tr>
-        </thead>
-        <tbody>
-          {stocks.map((stock) => (
-            <tr key={stock.code}>
-              <td>
-                <span className="stock-code">{stock.code}</span>
-              </td>
-              <td>
-                <span className="stock-name">{stock.name}</span>
-              </td>
-              <td>
-                <span className="stock-price">
-                  {stock.price.toFixed(2)}
-                </span>
-              </td>
-              <td className={getPriceClass(stock.change)}>
-                {stock.change > 0 ? '+' : ''}
-                {stock.change.toFixed(2)}
-              </td>
-              <td className={getPriceClass(stock.changePercent)}>
-                {stock.changePercent > 0 ? '+' : ''}
-                {stock.changePercent.toFixed(2)}%
-              </td>
-              <td>{formatNumber(stock.volume)}</td>
-              <td>{formatNumber(stock.amount)}</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
+      <div className="stock-card-grid">
+        {stocks.map((stock) => (
+          <StockCard key={stock.code} stock={stock} />
+        ))}
+      </div>
     </div>
   );
 };
