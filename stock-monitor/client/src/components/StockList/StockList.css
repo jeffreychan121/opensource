@@ -1,0 +1,125 @@
+.stock-list {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.stock-list-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.stock-list-title {
+  font-size: 24px;
+  font-weight: 600;
+  color: #333;
+}
+
+.sort-btn {
+  padding: 8px 16px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background: #fff;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.sort-btn:hover {
+  background: #f5f5f5;
+}
+
+.sort-btn.active {
+  background: #1890ff;
+  color: #fff;
+  border-color: #1890ff;
+}
+
+.stock-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.stock-table th,
+.stock-table td {
+  padding: 12px 16px;
+  text-align: left;
+}
+
+.stock-table th {
+  background: #fafafa;
+  font-weight: 600;
+  color: #666;
+  font-size: 14px;
+}
+
+.stock-table td {
+  border-top: 1px solid #f0f0f0;
+  font-size: 14px;
+}
+
+.stock-code {
+  font-weight: 500;
+  color: #333;
+}
+
+.stock-name {
+  color: #666;
+  margin-left: 8px;
+}
+
+.stock-price {
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.stock-up {
+  color: #ff0000;
+}
+
+.stock-down {
+  color: #00ff00;
+}
+
+.stock-neutral {
+  color: #999;
+}
+
+.loading-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 200px;
+}
+
+.loading-spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid #f3f3f3;
+  border-top: 3px solid #1890ff;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.error-container {
+  padding: 40px;
+  text-align: center;
+  color: #ff4d4f;
+}
+
+.empty-container {
+  padding: 40px;
+  text-align: center;
+  color: #999;
+}
