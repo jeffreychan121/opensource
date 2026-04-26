@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="ai_search_mvp_page" name="AI Search MVP Page">
+        <t t-call="web.layout">
+            <t t-call-assets="web.assets_backend" />
+            <div id="ai_search_mvp_app"></div>
+        </t>
+    </template>
+</odoo>

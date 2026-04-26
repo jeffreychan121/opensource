@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<templates>
+    <t t-name="ai_dify_search_mvp.AiSearchMvpPage">
+        <div class="o_ai_search_mvp_container">
+
+            <header class="ai-search-mvp-header">
+                <div class="search-hero">
+                    <h1 class="search-title">Find Your Perfect Product</h1>
+
+                    <div class="search-input-row">
+                        <div class="search-input-wrapper">
+                            <input type="text"
+                                   t-ref="searchInput"
+                                   t-att-value="state.query"
+                                   t-on-keypress="onSearchKeypress"
+                                   placeholder="Search products..."
+                                   class="search-input"/>
+                        </div>
+                        <div class="ai-mode-toggle">
+                            <span class="toggle-label">AI</span>
+                            <div t-att-class="getAiToggleClass()"
+                                 t-on-click="toggleAiMode">
+                                <span class="toggle-slider"></span>
+                            </div>
+                        </div>
+                        <button t-on-click="onSearch"
+                                class="search-btn"
+                                t-att-disabled="state.isLoading">
+                            <t t-if="state.isLoading">...</t>
+                            <t t-else="">🔍</t>
+                        </button>
+                    </div>
+                </div>
+            </header>
+
+            <main class="main-content">
+                <t t-if="state.isLoading">
+                    <div class="state-loading">
+                        <div class="loading-spinner"></div>
+                        <span class="loading-text">AI is finding products...</span>
+                    </div>
+                </t>
+                <t t-elif="state.error and state.hasSearched">
+                    <div class="state-error">
+                        <div class="error-icon">⚠️</div>
+                        <h3>Error</h3>
+                        <p t-esc="state.error"/>
+                    </div>
+                </t>
+                <t t-elif="state.hasSearched and state.products.length > 0">
+                    <t t-if="state.chips.length > 0">
+                        <div class="parsed-intent-chips">
+                            <t t-foreach="state.chips" t-as="chip" t-key="chip.label">
+                                <span class="intent-chip" t-att-class="getChipClass(chip)">
+                                    <t t-esc="chip.label"/>
+                                </span>
+                            </t>
+                        </div>
+                    </t>
+
+                    <div class="results-header">
+                        Found <strong t-esc="state.products.length"/> products
+                    </div>
+
+                    <div class="products-grid">
+                        <t t-foreach="state.products" t-as="product" t-key="product.id">
+                            <div class="product-card">
+                                <div class="product-image">
+                                    <img t-att-src="product.image_url"
+                                         t-att-alt="product.name"
+                                         onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Crect fill=%22%23f3f4f6%22 width=%22100%22 height=%22100%22/%3E%3Ctext x=%2250%22 y=%2255%22 text-anchor=%22middle%22 fill=%22%239ca3af%22 font-size=%2212%22%3ENo Image%3C/text%3E%3C/svg%3E'"/>
+                                </div>
+                                <div class="product-info">
+                                    <t t-if="product.default_code">
+                                        <span class="product-sku">SKU: <t t-esc="product.default_code"/></span>
+                                    </t>
+                                    <h3 class="product-name" t-esc="product.name"/>
+                                    <p class="product-short-desc" t-esc="product.short_description"/>
+                                    <div class="product-price-row">
+                                        <span class="product-price">$<t t-esc="formatPrice(product.price)"/></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </t>
+                    </div>
+
+                    <t t-if="state.summary">
+                        <div class="ai-summary">
+                            <div class="summary-label">AI Recommendation</div>
+                            <p class="summary-text" t-esc="state.summary"/>
+                        </div>
+                    </t>
+
+                    <t t-if="state.fallbackUsed">
+                        <div class="fallback-warning">
+                            <span class="warning-icon">⚠️</span>
+                            <span>AI service unavailable, showing basic results.</span>
+                        </div>
+                    </t>
+                </t>
+                <t t-elif="state.hasSearched and state.products.length === 0">
+                    <div class="state-empty">
+                        <div class="empty-icon">🔍</div>
+                        <h3>No products found</h3>
+                        <p>Try different keywords</p>
+                    </div>
+                </t>
+                <t t-else="">
+                    <div class="state-idle">
+                        <div class="idle-illustration">
+                            <div class="illustration-circle"></div>
+                            <div class="illustration-icon">🔍</div>
+                        </div>
+                        <h2>AI-Powered Product Search</h2>
+                        <p>Enter keywords to find products</p>
+                    </div>
+                </t>
+            </main>
+        </div>
+    </t>
+</templates>

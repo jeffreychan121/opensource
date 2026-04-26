@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="ai_search_page" name="AI Search Page">
+        <t t-call="web.layout">
+            <t t-set="title">AI 智能搜索</t>
+            <t t-call-assets="web.assets_backend" />
+            <div id="ai_search_app"></div>
+        </t>
+    </template>
+</odoo>

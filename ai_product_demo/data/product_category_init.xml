@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <!-- ============================================
+             产品分类初始化
+             ============================================ -->
+
+        <!-- 手机数码 -->
+        <record id="demo_phone" model="product.category">
+            <field name="name">手机/数码</field>
+            <field name="parent_id" ref="product.product_category_all"/>
+        </record>
+
+        <!-- 蓝牙耳机 -->
+        <record id="demo_earphone" model="product.category">
+            <field name="name">蓝牙耳机/音频</field>
+            <field name="parent_id" ref="product.product_category_all"/>
+        </record>
+
+        <!-- 笔记本办公 -->
+        <record id="demo_laptop" model="product.category">
+            <field name="name">笔记本/办公</field>
+            <field name="parent_id" ref="product.product_category_all"/>
+        </record>
+
+        <!-- 家电小家电 -->
+        <record id="demo_appliance" model="product.category">
+            <field name="name">家电/小家电</field>
+            <field name="parent_id" ref="product.product_category_all"/>
+        </record>
+
+        <!-- ============================================
+             品牌数据初始化
+             ============================================ -->
+
+        <!-- 手机品牌 -->
+        <record id="brand_xiaomi" model="product.brand">
+            <field name="name">小米</field>
+        </record>
+        <record id="brand_huawei" model="product.brand">
+            <field name="name">华为</field>
+        </record>
+        <record id="brand_apple" model="product.brand">
+            <field name="name">苹果</field>
+        </record>
+        <record id="brand_samsung" model="product.brand">
+            <field name="name">三星</field>
+        </record>
+        <record id="brand_vivo" model="product.brand">
+            <field name="name">vivo</field>
+        </record>
+        <record id="brand_oppo" model="product.brand">
+            <field name="name">OPPO</field>
+        </record>
+
+        <!-- 耳机品牌 -->
+        <record id="brand_sony" model="product.brand">
+            <field name="name">索尼</field>
+        </record>
+        <record id="brand_bose" model="product.brand">
+            <field name="name">BOSE</field>
+        </record>
+        <record id="brand_huawei_audio" model="product.brand">
+            <field name="name">华为音频</field>
+        </record>
+        <record id="brand_edifier" model="product.brand">
+            <field name="name">漫步者</field>
+        </record>
+        <record id="brand_sennheiser" model="product.brand">
+            <field name="name">森海塞尔</field>
+        </record>
+
+        <!-- 笔记本品牌 -->
+        <record id="brand_lenovo" model="product.brand">
+            <field name="name">联想</field>
+        </record>
+        <record id="brand_dell" model="product.brand">
+            <field name="name">戴尔</field>
+        </record>
+        <record id="brand_hp" model="product.brand">
+            <field name="name">惠普</field>
+        </record>
+        <record id="brand_asus" model="product.brand">
+            <field name="name">华硕</field>
+        </record>
+        <record id="brand_acer" model="product.brand">
+            <field name="name">宏碁</field>
+        </record>
+
+        <!-- 家电品牌 -->
+        <record id="brand_midea" model="product.brand">
+            <field name="name">美的</field>
+        </record>
+        <record id="brand_gree" model="product.brand">
+            <field name="name">格力</field>
+        </record>
+        <record id="brand_philips" model="product.brand">
+            <field name="name">飞利浦</field>
+        </record>
+        <record id="brand_dyson" model="product.brand">
+            <field name="name">戴森</field>
+        </record>
+        <record id="brand_deerma" model="product.brand">
+            <field name="name">德尔玛</field>
+        </record>
+
+    </data>
+</odoo>

@@ -1,0 +1,316 @@
+<?xml version="1.0" encoding="utf-8"?>
+<templates>
+    <!-- Main AI Search Page Template -->
+    <t t-name="ai_dify_search.AiSearchPage">
+        <div class="o_ai_search_container">
+
+            <!-- ===== SEARCH HERO ===== -->
+            <header class="ai-search-header">
+                <div class="search-hero-compact">
+                    <div class="search-input-row">
+                        <div class="search-input-wrapper">
+                            <input type="text"
+                                   t-ref="searchInput"
+                                   t-att-value="state.query"
+                                   t-on-keypress="onSearchKeypress"
+                                   t-on-input="(e) => state.query = e.target.value"
+                                   placeholder="试试用自然语言描述你想要的商品..."
+                                   class="search-input"/>
+                            <button t-on-click="onSearch"
+                                    class="search-btn"
+                                    t-att-disabled="state.isLoading">
+                                <t t-if="state.isLoading">...</t>
+                                <t t-else="">搜索</t>
+                            </button>
+                        </div>
+                        <!-- AI Mode Toggle -->
+                        <div class="ai-mode-toggle">
+                            <span class="toggle-label">AI模式</span>
+                            <div t-att-class="getAiToggleClass()"
+                                 t-on-click="toggleAiMode">
+                                <span class="toggle-slider"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- ===== MAIN CONTENT ===== -->
+            <main class="ai-search-main">
+
+                <!-- AI Response Area (only show in AI mode) -->
+                <div t-if="state.aiMode and state.aiResponse" class="ai-response-area">
+                    <div class="ai-response-header">
+                        <span class="ai-response-icon">✨</span>
+                        <span class="ai-response-title">AI智能理解</span>
+                    </div>
+                    <div class="ai-response-content" t-esc="state.aiResponse"/>
+                </div>
+
+                <!-- Category Tabs -->
+                <t t-if="state.categories and state.categories.length > 0">
+                    <div class="category-tabs">
+                        <div class="category-tab"
+                             t-att-class="{'active': state.activeCategory === 'all'}"
+                             t-on-click="() => this.onCategoryTabClick('all')">
+                            全部
+                        </div>
+                        <t t-foreach="state.categories" t-as="cat" t-key="cat.name">
+                            <div class="category-tab"
+                                 t-att-class="{'active': state.activeCategory === cat.name}"
+                                 t-on-click="() => this.onCategoryTabClick(cat.name)">
+                                <t t-esc="cat.name"/>
+                                <span class="tab-count" t-esc="cat.count"/>
+                            </div>
+                        </t>
+                    </div>
+                </t>
+
+                <!-- Products Grid -->
+                <div t-if="state.hasSearched and !state.isLoading and state.filteredProducts.length > 0">
+                    <div class="results-header">
+                        <div class="results-count">
+                            找到 <strong t-esc="state.filteredProducts.length"/> 件相关商品
+                        </div>
+                        <select class="sort-select">
+                            <option>综合排序</option>
+                            <option>销量优先</option>
+                            <option>价格从低到高</option>
+                            <option>价格从高到低</option>
+                            <option>好评优先</option>
+                        </select>
+                    </div>
+                    <div class="products-grid">
+                        <t t-foreach="state.filteredProducts" t-as="product" t-key="product.id">
+                            <div class="product-card"
+                                 t-att-class="{'selected': isProductSelected(product.id)}">
+                                <button class="product-select-btn"
+                                        t-on-click="(e) => this.toggleProductSelection(product, e)">
+                                    <t t-if="isProductSelected(product.id)">✓</t>
+                                </button>
+                                <div class="product-image">
+                                    <div class="image-wrapper">
+                                        <img t-att-src="product.image"
+                                             t-att-alt="product.name"
+                                             onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Crect fill=%22%23f3f4f6%22 width=%22100%22 height=%22100%22/%3E%3Ctext x=%2250%22 y=%2255%22 text-anchor=%22middle%22 fill=%22%239ca3af%22 font-size=%2212%22%3ENo Image%3C/text%3E%3C/svg%3E'"/>
+                                        <div class="image-overlay">
+                                            <button class="overlay-btn favorite-btn" title="收藏">
+                                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                                    <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                                                </svg>
+                                            </button>
+                                            <button class="overlay-btn cart-btn" title="加入购物车">
+                                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                                    <circle cx="9" cy="21" r="1"/>
+                                                    <circle cx="20" cy="21" r="1"/>
+                                                    <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
+                                                </svg>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="product-info">
+                                    <t t-if="product.sku">
+                                        <span class="product-sku">SKU: <t t-esc="product.sku"/></span>
+                                    </t>
+                                    <h3 class="product-name" t-esc="product.name"/>
+                                    <div class="product-price-row">
+                                        <span class="product-price">$<t t-esc="formatPrice(product.price)"/></span>
+                                    </div>
+                                    <div class="product-actions">
+                                        <button class="action-btn favorite" title="收藏">
+                                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                                            </svg>
+                                        </button>
+                                        <button class="action-btn add-cart" title="加入购物车">
+                                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                                <circle cx="9" cy="21" r="1"/>
+                                                <circle cx="20" cy="21" r="1"/>
+                                                <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
+                                            </svg>
+                                            <span>加入购物车</span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </t>
+                    </div>
+                </div>
+
+                <!-- Empty State -->
+                <div t-if="state.hasSearched and !state.isLoading and state.filteredProducts.length === 0 and !state.error"
+                     class="state-empty">
+                    <div class="state-empty-icon">🔍</div>
+                    <h3>No products found</h3>
+                    <p>Try different keywords</p>
+                </div>
+
+                <!-- Idle State -->
+                <div t-if="!state.hasSearched" class="state-idle">
+                    <div class="idle-icon">🔍</div>
+                    <h3>AI-Powered Product Search</h3>
+                    <p>Enter keywords to find products</p>
+                </div>
+            </main>
+
+            <!-- ===== COMPARE BAR ===== -->
+            <div class="compare-bar" t-att-class="{'visible': isCompareBarVisible(), 'collapsed': isCompareBarCollapsed()}">
+                <button class="compare-toggle-btn" t-att-class="{'collapsed': isCompareBarCollapsed()}" t-on-click="toggleCompareBar">
+                    <span class="toggle-icon">▲</span>
+                    <t t-if="isCompareBarCollapsed()">显示对比</t>
+                    <t t-else="">隐藏对比</t>
+                </button>
+                <div class="compare-bar-content">
+                    <div class="compare-slots">
+                        <t t-foreach="getCompareSlots()" t-as="slot" t-key="slot_index">
+                            <div class="compare-slot" t-att-class="{'filled': slot}">
+                                <t t-if="slot">
+                                    <img t-att-src="slot.image" t-att-alt="slot.name"/>
+                                    <button class="slot-remove" t-on-click="() => this.removeFromComparison(slot.id)">✕</button>
+                                </t>
+                                <t t-else=""><span>空</span></t>
+                            </div>
+                        </t>
+                    </div>
+                    <div class="compare-actions">
+                        <button class="compare-clear" t-on-click="clearComparison">清空</button>
+                        <button class="compare-submit" t-att-disabled="getRemainingSlots() > 0" t-on-click="submitComparison">对比</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ===== COMPARE MODAL ===== -->
+            <t t-if="state.showCompareModal">
+                <div class="compare-modal-overlay" t-on-click="closeCompareModal">
+                    <div class="compare-modal" t-on-click="(e) => e.stopPropagation()">
+                        <div class="modal-header">
+                            <h3>商品对比</h3>
+                            <button class="modal-close" t-on-click="closeCompareModal">✕</button>
+                        </div>
+                        <div class="modal-body">
+                            <!-- 对比内容：商品卡片 + 参数表格 -->
+                            <div class="compare-header">
+                                <t t-foreach="state.selectedProducts" t-as="product" t-key="product.id">
+                                    <div class="compare-product-card">
+                                        <img class="compare-product-img"
+                                             t-att-src="product.image"
+                                             t-att-alt="product.name"
+                                             onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Crect fill=%22%23f8f9fa%22 width=%22100%22 height=%22100%22/%3E%3Ctext x=%2250%22 y=%2255%22 text-anchor=%22middle%22 fill=%22%239ca3af%22 font-size=%2210%22%3ENo Image%3C/text%3E%3C/svg%3E'"/>
+                                        <h4 t-esc="product.name"/>
+                                        <div class="compare-price">
+                                            <span class="price-symbol">$</span>
+                                            <span t-esc="formatPrice(product.price)"/>
+                                        </div>
+                                    </div>
+                                </t>
+                            </div>
+
+                            <!-- 参数对比表格 -->
+                            <div class="compare-table">
+                                <div class="compare-row">
+                                    <div class="row-label">卖点</div>
+                                    <t t-foreach="state.selectedProducts" t-as="product" t-key="product.id">
+                                        <div class="row-value">
+                                            <t t-if="product.compareSellingPoints" t-esc="product.compareSellingPoints"/>
+                                            <t t-else="">-</t>
+                                        </div>
+                                    </t>
+                                </div>
+                                <div class="compare-row">
+                                    <div class="row-label">适用人群</div>
+                                    <t t-foreach="state.selectedProducts" t-as="product" t-key="product.id">
+                                        <div class="row-value">
+                                            <t t-if="product.compareTargetPeople" t-esc="product.compareTargetPeople"/>
+                                            <t t-else="">-</t>
+                                        </div>
+                                    </t>
+                                </div>
+                                <div class="compare-row">
+                                    <div class="row-label">适用场景</div>
+                                    <t t-foreach="state.selectedProducts" t-as="product" t-key="product.id">
+                                        <div class="row-value">
+                                            <t t-if="product.compareScenes" t-esc="product.compareScenes"/>
+                                            <t t-else="">-</t>
+                                        </div>
+                                    </t>
+                                </div>
+                                <div class="compare-row">
+                                    <div class="row-label">产品亮点</div>
+                                    <t t-foreach="state.selectedProducts" t-as="product" t-key="product.id">
+                                        <div class="row-value">
+                                            <t t-if="product.compareHighlights" t-esc="product.compareHighlights"/>
+                                            <t t-else="">-</t>
+                                        </div>
+                                    </t>
+                                </div>
+                                <div class="compare-row">
+                                    <div class="row-label">保修信息</div>
+                                    <t t-foreach="state.selectedProducts" t-as="product" t-key="product.id">
+                                        <div class="row-value">
+                                            <t t-if="product.compareWarranty" t-esc="product.compareWarranty"/>
+                                            <t t-else="">-</t>
+                                        </div>
+                                    </t>
+                                </div>
+                            </div>
+
+                            <!-- AI 选购建议 -->
+                            <t t-if="state.isComparing">
+                                <div class="compare-recommendation">
+                                    <div class="recommendation-header">
+                                        <span class="recommendation-icon">
+                                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                                <path d="M12 2a10 10 0 1 0 10 10H12V2z"/>
+                                                <path d="M12 2a10 10 0 0 1 10 10"/>
+                                                <circle cx="12" cy="12" r="6"/>
+                                            </svg>
+                                        </span>
+                                        <span class="recommendation-title">AI 选购建议</span>
+                                    </div>
+                                    <div class="recommendation-loading">
+                                        <div class="loading-dots">
+                                            <span></span><span></span><span></span>
+                                        </div>
+                                        <span style="color: #9ca3af; font-size: 13px;">正在生成...</span>
+                                    </div>
+                                </div>
+                            </t>
+                            <t t-elif="state.aiCompareResult and state.aiCompareResult.recommendation">
+                                <div class="compare-recommendation">
+                                    <div class="recommendation-header">
+                                        <span class="recommendation-icon">
+                                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                                <path d="M12 2a10 10 0 1 0 10 10H12V2z"/>
+                                                <path d="M12 2a10 10 0 0 1 10 10"/>
+                                                <circle cx="12" cy="12" r="6"/>
+                                            </svg>
+                                        </span>
+                                        <span class="recommendation-title">AI 选购建议</span>
+                                    </div>
+                                    <div class="recommendation-content" t-esc="state.aiCompareResult.recommendation"/>
+                                    <div class="recommendation-footer">
+                                        <span class="recommendation-badge">
+                                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                                <circle cx="12" cy="12" r="10"/>
+                                                <path d="M12 6v6l4 2"/>
+                                            </svg>
+                                            AI 分析
+                                        </span>
+                                    </div>
+                                </div>
+                            </t>
+                            <t t-elif="state.compareError">
+                                <div class="compare-error">
+                                    <p t-esc="state.compareError"/>
+                                    <button class="btn-retry" t-on-click="submitComparison">重试</button>
+                                </div>
+                            </t>
+                        </div>
+                    </div>
+                </div>
+            </t>
+
+        </div>
+    </t>
+</templates>

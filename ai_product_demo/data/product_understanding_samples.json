@@ -1,0 +1,166 @@
+{
+  "description": "商品理解层输出样本 - 展示 AI 商品理解服务的标准输出格式",
+  "samples": [
+    {
+      "id": 1,
+      "sku": "DEMO-PHONE-001",
+      "name": "小米14 Pro 5G智能手机",
+      "brand": "小米",
+      "category": "手机/数码",
+      "price": 4999.00,
+      "description": "小米14 Pro，骁龙8 Gen3处理器，5000万像素徕卡影像，120W超级快充，适合追求高性能和拍照的用户",
+      "selling_point": "徕卡影像+骁龙8 Gen3高性能组合",
+      "target_people": "追求旗舰性能的用户,摄影爱好者",
+      "scenes": ["商务", "拍照", "游戏", "日常使用"],
+      "weight": 0.21,
+      "attributes": {
+        "颜色": ["黑色", "白色", "绿色"],
+        "内存": ["12GB", "16GB"],
+        "存储": ["256GB", "512GB"]
+      },
+      "searchable_text": "小米14 Pro 5G智能手机 DEMO-PHONE-001 小米14 Pro，骁龙8 Gen3处理器，5000万像素徕卡影像，120W超级快充，适合追求高性能和拍照的用户 小米 手机/数码 商务,拍照,游戏,日常使用 徕卡影像+骁龙8 Gen3高性能组合 追求旗舰性能的用户,摄影爱好者",
+      "compare_features": {
+        "price": 4999.00,
+        "weight": 0.21,
+        "brand": "小米",
+        "processor": "骁龙8 Gen3",
+        "camera": "5000万徕卡",
+        "battery": "5000mAh",
+        "fast_charging": "120W"
+      },
+      "recommendation_tags": ["徕卡影像+骁龙8 Gen3高性能组合", "追求旗舰性能的用户", "摄影爱好者", "商务", "拍照", "游戏", "日常使用"]
+    },
+    {
+      "id": 2,
+      "sku": "DEMO-PHONE-010",
+      "name": "iPhone 15 Pro Max",
+      "brand": "苹果",
+      "category": "手机/数码",
+      "price": 9999.00,
+      "description": "iPhone 15 Pro Max，A17 Pro芯片，钛金属边框，5倍光学变焦，iOS 17",
+      "selling_point": "A17 Pro+钛金属旗舰iPhone",
+      "target_people": "苹果用户,追求旗舰体验用户,商务人士",
+      "scenes": ["旗舰", "拍照", "商务", "日常使用"],
+      "weight": 0.22,
+      "attributes": {
+        "颜色": ["黑色钛金属", "白色钛金属", "蓝色钛金属"],
+        "内存": ["8GB"],
+        "存储": ["256GB", "512GB", "1TB"]
+      },
+      "searchable_text": "iPhone 15 Pro Max DEMO-PHONE-010 iPhone 15 Pro Max，A17 Pro芯片，钛金属边框，5倍光学变焦，iOS 17 苹果 手机/数码 旗舰,拍照,商务,日常使用 A17 Pro+钛金属旗舰iPhone 苹果用户,追求旗舰体验用户,商务人士",
+      "compare_features": {
+        "price": 9999.00,
+        "weight": 0.22,
+        "brand": "苹果",
+        "processor": "A17 Pro",
+        "camera": "4800万原彩",
+        "battery": "更大容量",
+        "fast_charging": "27W"
+      },
+      "recommendation_tags": ["A17 Pro+钛金属旗舰iPhone", "苹果用户", "追求旗舰体验用户", "商务人士", "旗舰", "拍照", "商务", "日常使用"]
+    },
+    {
+      "id": 3,
+      "sku": "DEMO-EARPHONE-001",
+      "name": "索尼WH-1000XM5无线降噪耳机",
+      "brand": "索尼",
+      "category": "蓝牙耳机/音频",
+      "price": 2699.00,
+      "description": "索尼WH-1000XM5，业界领先主动降噪，30小时续航，LDAC高清音质，适合音乐发烧友和商务出行",
+      "selling_point": "业界领先降噪+30小时续航",
+      "target_people": "音乐发烧友,商务人士,通勤族",
+      "scenes": ["音乐欣赏", "商务出行", "通勤", "降噪需求"],
+      "weight": 0.25,
+      "attributes": {
+        "颜色": ["黑色", "铂金银"],
+        "连接": ["蓝牙5.2", "LDAC"],
+        "降噪": ["主动降噪"]
+      },
+      "searchable_text": "索尼WH-1000XM5无线降噪耳机 DEMO-EARPHONE-001 索尼WH-1000XM5，业界领先主动降噪，30小时续航，LDAC高清音质，适合音乐发烧友和商务出行 索尼 蓝牙耳机/音频 音乐欣赏,商务出行,通勤,降噪需求 业界领先降噪+30小时续航 音乐发烧友,商务人士,通勤族",
+      "compare_features": {
+        "price": 2699.00,
+        "weight": 0.25,
+        "brand": "索尼",
+        "battery": "30小时",
+        "anc": "业界领先",
+        "codec": "LDAC"
+      },
+      "recommendation_tags": ["业界领先降噪+30小时续航", "音乐发烧友", "商务人士", "通勤族", "音乐欣赏", "商务出行", "通勤", "降噪需求"]
+    },
+    {
+      "id": 4,
+      "sku": "DEMO-LAPTOP-001",
+      "name": "联想ThinkPad X1 Carbon 2024",
+      "brand": "联想",
+      "category": "笔记本/办公",
+      "price": 12999.00,
+      "description": "ThinkPad X1 Carbon，Intel Core Ultra7处理器，14英寸2.8K OLED屏，轻薄商务本，1.12kg超轻机身",
+      "selling_point": "轻薄商务旗舰+OLED高清屏",
+      "target_people": "商务人士,企业用户,经常出差者",
+      "scenes": ["商务办公", "出差便携", "文档处理", "高管用户"],
+      "weight": 1.12,
+      "attributes": {
+        "处理器": ["Intel Core Ultra7", "Intel Core Ultra5"],
+        "内存": ["16GB", "32GB"],
+        "存储": ["512GB", "1TB", "2TB"]
+      },
+      "searchable_text": "联想ThinkPad X1 Carbon 2024 DEMO-LAPTOP-001 ThinkPad X1 Carbon，Intel Core Ultra7处理器，14英寸2.8K OLED屏，轻薄商务本，1.12kg超轻机身 联想 笔记本/办公 商务办公,出差便携,文档处理,高管用户 轻薄商务旗舰+OLED高清屏 商务人士,企业用户,经常出差者",
+      "compare_features": {
+        "price": 12999.00,
+        "weight": 1.12,
+        "brand": "联想",
+        "processor": "Intel Core Ultra7",
+        "screen": "14英寸2.8K OLED",
+        "battery": "15小时"
+      },
+      "recommendation_tags": ["轻薄商务旗舰+OLED高清屏", "商务人士", "企业用户", "经常出差者", "商务办公", "出差便携", "文档处理", "高管用户"]
+    },
+    {
+      "id": 5,
+      "sku": "DEMO-APPLIANCE-001",
+      "name": "美的变频空调KFR-35GW",
+      "brand": "美的",
+      "category": "家电/小家电",
+      "price": 2699.00,
+      "description": "美的变频空调，1.5匹，冷暖空调，智能WiFi控制，新一级能效，适合卧室和小客厅",
+      "selling_point": "智能变频+新一级能效",
+      "target_people": "家庭用户,卧室使用,节能需求用户",
+      "scenes": ["卧室制冷热", "客厅制冷热", "节能省电", "智能家居"],
+      "weight": 12.5,
+      "attributes": {
+        "匹数": ["1匹", "1.5匹", "2匹"],
+        "能效": ["新一级", "新三级"],
+        "功能": ["冷暖", "WiFi控制", "自清洁"]
+      },
+      "searchable_text": "美的变频空调KFR-35GW DEMO-APPLIANCE-001 美的变频空调，1.5匹，冷暖空调，智能WiFi控制，新一级能效，适合卧室和小客厅 美的 家电/小家电 卧室制冷热,客厅制冷热,节能省电,智能家居 智能变频+新一级能效 家庭用户,卧室使用,节能需求用户",
+      "compare_features": {
+        "price": 2699.00,
+        "weight": 12.5,
+        "brand": "美的",
+        "capacity": "1.5匹",
+        "energy": "新一级能效",
+        "smart": "WiFi控制"
+      },
+      "recommendation_tags": ["智能变频+新一级能效", "家庭用户", "卧室使用", "节能需求用户", "卧室制冷热", "客厅制冷热", "节能省电", "智能家居"]
+    }
+  ],
+  "output_format": {
+    "product_understanding_object": {
+      "id": "商品ID",
+      "sku": "SKU编码",
+      "name": "商品名称",
+      "brand": "品牌",
+      "category": "商品分类",
+      "price": "价格",
+      "description": "销售描述",
+      "selling_point": "核心卖点",
+      "target_people": "目标人群",
+      "scenes": ["场景标签列表"],
+      "weight": "重量(kg)",
+      "attributes": {"属性名": ["属性值列表"]},
+      "searchable_text": "可搜索文本拼接",
+      "compare_features": {"对比特征字典"},
+      "recommendation_tags": ["推荐标签列表"]
+    }
+  }
+}

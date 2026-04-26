@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <!-- 清理过期 session 的定时任务，每小时执行一次 -->
+        <record id="ir_cron_ai_search_cleanup" model="ir.cron">
+            <field name="name">AI Search: Cleanup expired sessions</field>
+            <field name="model_id" ref="model_ai_search_session"/>
+            <field name="state">code</field>
+            <field name="code">model.cleanup_expired_sessions()</field>
+            <field name="interval_number">1</field>
+            <field name="interval_type">hours</field>
+            <field name="active">True</field>
+        </record>
+
+        <!-- 清理旧日志的定时任务，每天执行一次 -->
+        <record id="ir_cron_ai_search_log_cleanup" model="ir.cron">
+            <field name="name">AI Search: Cleanup old logs</field>
+            <field name="model_id" ref="model_ai_search_log"/>
+            <field name="state">code</field>
+            <field name="code">model.cleanup_old_logs()</field>
+            <field name="interval_number">1</field>
+            <field name="interval_type">days</field>
+            <field name="active">True</field>
+        </record>
+    </data>
+</odoo>

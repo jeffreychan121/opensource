@@ -1,0 +1,1484 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- ============================================
+             手机/数码类别 - 20个商品
+             ============================================ -->
+
+        <!-- 小米手机 -->
+        <record id="demo_phone_001" model="product.template">
+            <field name="name">小米14 Pro 5G智能手机</field>
+            <field name="default_code">DEMO-PHONE-001</field>
+            <field name="categ_id" ref="ai_product_demo.demo_phone"/>
+            <field name="list_price">4999.00</field>
+            <field name="standard_price">3500.00</field>
+            <field name="initial_purchase_cost">3500.00</field>
+            <field name="hs_code">123456</field>
+            <field name="description_sale">小米14 Pro，骁龙8 Gen3处理器，5000万像素徕卡影像，120W超级快充，适合追求高性能和拍照的用户</field>
+            <field name="brand_id" ref="ai_product_demo.brand_xiaomi"/>
+            <field name="weight">0.21</field>
+            <field name="x_scenario_tags">商务,拍照,游戏,日常使用</field>
+            <field name="x_selling_point">徕卡影像+骁龙8 Gen3高性能组合</field>
+            <field name="x_target_people">追求旗舰性能的用户,摄影爱好者</field>
+            <field name="sale_ok">1</field>
+            <field name="active">1</field>
+        </record>
+
+        <record id="demo_phone_002" model="product.template">
+            <field name="name">小米14 Ultra 5G智能手机</field>
+            <field name="default_code">DEMO-PHONE-002</field>
+            <field name="categ_id" ref="ai_product_demo.demo_phone"/>
+            <field name="list_price">6999.00</field>
+            <field name="standard_price">5000.00</field>
+            <field name="initial_purchase_cost">5000.00</field>
+            <field name="hs_code">123456</field>
+            <field name="description_sale">小米14 Ultra，骁龙8 Gen3旗舰处理器，1英寸徕卡主摄，双长焦镜头，5300mAh大电池</field>
+            <field name="brand_id" ref="ai_product_demo.brand_xiaomi"/>
+            <field name="weight">0.22</field>
+            <field name="x_scenario_tags">商务,拍照,摄影,旗舰</field>
+            <field name="x_selling_point">1英寸徕卡主摄+双长焦影像系统</field>
+            <field name="x_target_people">专业摄影师,高端商务人士</field>
+            <field name="sale_ok">1</field>
+            <field name="active">1</field>
+        </record>
+
+        <record id="demo_phone_003" model="product.template">
+            <field name="name">小米13 5G智能手机</field>
+            <field name="default_code">DEMO-PHONE-003</field>
+            <field name="categ_id" ref="ai_product_demo.demo_phone"/>
+            <field name="list_price">3999.00</field>
+            <field name="standard_price">2800.00</field>
+            <field name="initial_purchase_cost">2800.00</field>
+            <field name="hs_code">123456</field>
+            <field name="description_sale">小米13，骁龙8 Gen2处理器，徕卡专业摄影，4500mAh电池，无线充电</field>
+            <field name="brand_id" ref="ai_product_demo.brand_xiaomi"/>
+            <field name="weight">0.19</field>
+            <field name="x_scenario_tags">日常使用,拍照,轻商务</field>
+            <field name="x_selling_point">骁龙8 Gen2+徕卡影像性价比旗舰</field>
+            <field name="x_target_people">年轻用户,性价比追求者</field>
+            <field name="sale_ok">1</field>
+            <field name="active">1</field>
+        </record>
+
+        <record id="demo_phone_004" model="product.template">
+            <field name="name">小米Redmi K70 Pro</field>
+            <field name="default_code">DEMO-PHONE-004</field>
+            <field name="categ_id" ref="ai_product_demo.demo_phone"/>
+            <field name="list_price">3299.00</field>
+            <field name="standard_price">2300.00</field>
+            <field name="initial_purchase_cost">2300.00</field>
+            <field name="hs_code">123456</field>
+            <field name="description_sale">Redmi K70 Pro，骁龙8 Gen3旗舰芯片，2K护眼屏，5000mAh大电池，性价比旗舰</field>
+            <field name="brand_id" ref="ai_product_demo.brand_xiaomi"/>
+            <field name="weight">0.20</field>
+            <field name="x_scenario_tags">游戏,性价比,日常使用</field>
+            <field name="x_selling_point">骁龙8 Gen3性价比旗舰之选</field>
+            <field name="x_target_people">游戏玩家,预算有限的用户</field>
+            <field name="sale_ok">1</field>
+            <field name="active">1</field>
+        </record>
+
+        <record id="demo_phone_005" model="product.template">
+            <field name="name">小米Redmi Note 13 Pro+</field>
+            <field name="default_code">DEMO-PHONE-005</field>
+            <field name="categ_id" ref="ai_product_demo.demo_phone"/>
+            <field name="list_price">1999.00</field>
+            <field name="standard_price">1400.00</field>
+            <field name="initial_purchase_cost">1400.00</field>
+            <field name="hs_code">123456</field>
+            <field name="description_sale">Redmi Note 13 Pro+，2亿像素主摄，120W快充，曲面屏设计，中端旗舰配置</field>
+            <field name="brand_id" ref="ai_product_demo.brand_xiaomi"/>
+            <field name="weight">0.18</field>
+            <field name="x_scenario_tags">拍照,日常使用,性价比</field>
+            <field name="x_selling_point">2亿像素+120W快充中端旗舰</field>
+            <field name="x_target_people">学生党,拍照爱好者,预算有限用户</field>
+            <field name="sale_ok">1</field>
+            <field name="active">1</field>
+        </record>
+
+        <!-- 华为手机 -->
+        <record id="demo_phone_006" model="product.template">
+            <field name="name">华为Mate 60 Pro+</field>
+            <field name="default_code">DEMO-PHONE-006</field>
+            <field name="categ_id" ref="ai_product_demo.demo_phone"/>
+            <field name="list_price">8999.00</field>
+            <field name="standard_price">6500.00</field>
+            <field name="initial_purchase_cost">6500.00</field>
+            <field name="hs_code">123456</field>
+            <field name="description_sale">华为Mate 60 Pro+，麒麟9000S芯片，XMAGE影像，卫星通话，HarmonyOS 4</field>
+            <field name="brand_id" ref="ai_product_demo.brand_huawei"/>
+            <field name="weight">0.22</field>
+            <field name="x_scenario_tags">商务,旗舰,拍照,国产</field>
+            <field name="x_selling_point">麒麟芯片+卫星通话国产旗舰</field>
+            <field name="x_target_people">商务人士,科技爱好者,支持国货用户</field>
+            <field name="sale_ok">1</field>
+            <field name="active">1</field>
+        </record>
+
+        <record id="demo_phone_007" model="product.template">
+            <field name="name">华为Pura 70 Ultra</field>
+            <field name="default_code">DEMO-PHONE-007</field>
+            <field name="categ_id" ref="ai_product_demo.demo_phone"/>
+            <field name="list_price">9999.00</field>
+            <field name="standard_price">7200.00</field>
+            <field name="initial_purchase_cost">7200.00</field>
+            <field name="hs_code">123456</field>
+            <field name="description_sale">华为Pura 70 Ultra，麒麟9010芯片，可伸缩主摄，XMAGE超光变影像</field>
+            <field name="brand_id" ref="ai_product_demo.brand_huawei"/>
+            <field name="weight">0.21</field>
+            <field name="x_scenario_tags">拍照,旗舰,摄影,商务</field>
+            <field name="x_selling_point">可伸缩主摄+XMAGE超光变影像</field>
+            <field name="x_target_people">摄影爱好者,追求极致拍照的用户</field>
+            <field name="sale_ok">1</field>
+            <field name="active">1</field>
+        </record>
+
+        <record id="demo_phone_008" model="product.template">
+            <field name="name">华为nova 12 Pro</field>
+            <field name="default_code">DEMO-PHONE-008</field>
+            <field name="categ_id" ref="ai_product_demo.demo_phone"/>
+            <field name="list_price">3999.00</field>
+            <field name="standard_price">2800.00</field>
+            <field name="initial_purchase_cost">2800.00</field>
+            <field name="hs_code">123456</field>
+            <field name="description_sale">华为nova 12 Pro，前置6000万双摄，100W快充，HarmonyOS鸿蒙系统</field>
+            <field name="brand_id" ref="ai_product_demo.brand_huawei"/>
+            <field name="weight">0.19</field>
+            <field name="x_scenario_tags">自拍,日常使用,拍照</field>
+            <field name="x_selling_point">6000万前置双摄自拍旗舰</field>
+            <field name="x_target_people">年轻用户,自拍爱好者,时尚人士</field>
+            <field name="sale_ok">1</field>
+            <field name="active">1</field>
+        </record>
+
+        <record id="demo_phone_009" model="product.template">
+            <field name="name">华为Mate X5折叠屏</field>
+            <field name="default_code">DEMO-PHONE-009</field>
+            <field name="categ_id" ref="ai_product_demo.demo_phone"/>
+            <field name="list_price">12999.00</field>
+            <field name="standard_price">9500.00</field>
+            <field name="initial_purchase_cost">9500.00</field>
+            <field name="hs_code">123456</field>
+            <field name="description_sale">华为Mate X5，折叠屏设计，麒麟9000S芯片，XMAGE影像，IPX8防水</field>
+            <field name="brand_id" ref="ai_product_demo.brand_huawei"/>
+            <field name="weight">0.24</field>
+            <field name="x_scenario_tags">商务,旗舰,折叠屏,高端</field>
+            <field name="x_selling_point">折叠屏旗舰+麒麟芯片</field>
+            <field name="x_target_people">高端商务人士,科技爱好者,追求新物种用户</field>
+            <field name="sale_ok">1</field>
+            <field name="active">1</field>
+        </record>
+
+        <!-- 苹果手机 -->
+        <record id="demo_phone_010" model="product.template">
+            <field name="name">iPhone 15 Pro Max</field>
+            <field name="default_code">DEMO-PHONE-010</field>
+            <field name="categ_id" ref="ai_product_demo.demo_phone"/>
+            <field name="list_price">9999.00</field>
+            <field name="standard_price">7500.00</field>
+            <field name="initial_purchase_cost">7500.00</field>
+            <field name="hs_code">123456</field>
+            <field name="description_sale">iPhone 15 Pro Max，A17 Pro芯片，钛金属边框，5倍光学变焦，iOS 17</field>
+            <field name="brand_id" ref="ai_product_demo.brand_apple"/>
+            <field name="weight">0.22</field>
+            <field name="x_scenario_tags">旗舰,拍照,商务,日常使用</field>
+            <field name="x_selling_point">A17 Pro+钛金属旗舰iPhone</field>
+            <field name="x_target_people">苹果用户,追求旗舰体验用户,商务人士</field>
+            <field name="sale_ok">1</field>
+            <field name="active">1</field>
+        </record>
+
+        <record id="demo_phone_011" model="product.template">
+            <field name="name">iPhone 15 Pro</field>
+            <field name="default_code">DEMO-PHONE-011</field>
+            <field name="categ_id" ref="ai_product_demo.demo_phone"/>
+            <field name="list_price">7999.00</field>
+            <field name="standard_price">6000.00</field>
+            <field name="initial_purchase_cost">6000.00</field>
+            <field name="hs_code">123456</field>
+            <field name="description_sale">iPhone 15 Pro，A17 Pro芯片，钛金属边框，动作按钮，专业影像系统</field>
+            <field name="brand_id" ref="ai_product_demo.brand_apple"/>
+            <field name="weight">0.19</field>
+            <field name="x_scenario_tags">旗舰,拍照,游戏,日常使用</field>
+            <field name="x_selling_point">A17 Pro芯片专业旗舰</field>
+            <field name="x_target_people">苹果用户,追求高性能用户</field>
+            <field name="sale_ok">1</field>
+            <field name="active">1</field>
+        </record>
+
+        <record id="demo_phone_012" model="product.template">
+            <field name="name">iPhone 15</field>
+            <field name="default_code">DEMO-PHONE-012</field>
+            <field name="categ_id" ref="ai_product_demo.demo_phone"/>
+            <field name="list_price">5999.00</field>
+            <field name="standard_price">4500.00</field>
+            <field name="initial_purchase_cost">4500.00</field>
+            <field name="hs_code">123456</field>
+            <field name="description_sale">iPhone 15，A16仿生芯片，4800万双摄，灵动岛，USB-C接口</field>
+            <field name="brand_id" ref="ai_product_demo.brand_apple"/>
+            <field name="weight">0.18</field>
+            <field name="x_scenario_tags">日常使用,拍照,性价比</field>
+            <field name="x_selling_point">A16仿生芯片+灵动岛入门iPhone</field>
+            <field name="x_target_people">苹果用户,日常使用用户,换机用户</field>
+            <field name="sale_ok">1</field>
+            <field name="active">1</field>
+        </record>
+
+        <!-- 三星手机 -->
+        <record id="demo_phone_013" model="product.template">
+            <field name="name">三星Galaxy S24 Ultra</field>
+            <field name="default_code">DEMO-PHONE-013</field>
+            <field name="categ_id" ref="ai_product_demo.demo_phone"/>
+            <field name="list_price">9699.00</field>
+            <field name="standard_price">7200.00</field>
+            <field name="initial_purchase_cost">7200.00</field>
+            <field name="hs_code">123456</field>
+            <field name="description_sale">三星Galaxy S24 Ultra，骁龙8 Gen3处理器，2亿像素主摄，内置S Pen，AI功能</field>
+            <field name="brand_id" ref="ai_product_demo.brand_samsung"/>
+            <field name="weight">0.23</field>
+            <field name="x_scenario_tags">商务,拍照,旗舰,AI</field>
+            <field name="x_selling_point">2亿像素+内置S Pen旗舰</field>
+            <field name="x_target_people">商务人士,手写笔爱好者,三星粉丝</field>
+            <field name="sale_ok">1</field>
+            <field name="active">1</field>
+        </record>
+
+        <record id="demo_phone_014" model="product.template">
+            <field name="name">三星Galaxy S24+</field>
+            <field name="default_code">DEMO-PHONE-014</field>
+            <field name="categ_id" ref="ai_product_demo.demo_phone"/>
+            <field name="list_price">6999.00</field>
+            <field name="standard_price">5200.00</field>
+            <field name="initial_purchase_cost">5200.00</field>
+            <field name="hs_code">123456</field>
+            <field name="description_sale">三星Galaxy S24+，骁龙8 Gen3，6.7英寸2K屏，5000mAh电池</field>
+            <field name="brand_id" ref="ai_product_demo.brand_samsung"/>
+            <field name="weight">0.20</field>
+            <field name="x_scenario_tags">日常使用,拍照,旗舰</field>
+            <field name="x_selling_point">大屏旗舰+骁龙8 Gen3</field>
+            <field name="x_target_people">大屏爱好者,三星用户</field>
+            <field name="sale_ok">1</field>
+            <field name="active">1</field>
+        </record>
+
+        <!-- vivo手机 -->
+        <record id="demo_phone_015" model="product.template">
+            <field name="name">vivo X100 Pro</field>
+            <field name="default_code">DEMO-PHONE-015</field>
+            <field name="categ_id" ref="ai_product_demo.demo_phone"/>
+            <field name="list_price">5499.00</field>
+            <field name="standard_price">4000.00</field>
+            <field name="initial_purchase_cost">4000.00</field>
+            <field name="hs_code">123456</field>
+            <field name="description_sale">vivo X100 Pro，天玑9300处理器，蔡司光学镜头，5000mAh蓝海电池</field>
+            <field name="brand_id" ref="ai_product_demo.brand_vivo"/>
+            <field name="weight">0.21</field>
+            <field name="x_scenario_tags">拍照,旗舰,音乐</field>
+            <field name="x_selling_point">蔡司光学+天玑9300旗舰</field>
+            <field name="x_target_people">拍照爱好者,音乐爱好者,vivo粉丝</field>
+            <field name="sale_ok">1</field>
+            <field name="active">1</field>
+        </record>
+
+        <record id="demo_phone_016" model="product.template">
+            <field name="name">vivo X90 Pro</field>
+            <field name="default_code">DEMO-PHONE-016</field>
+            <field name="categ_id" ref="ai_product_demo.demo_phone"/>
+            <field name="list_price">3999.00</field>
+            <field name="standard_price">2800.00</field>
+            <field name="initial_purchase_cost">2800.00</field>
+            <field name="hs_code">123456</field>
+            <field name="description_sale">vivo X90 Pro，天玑9200，蔡司T*光学镜头，120W闪充</field>
+            <field name="brand_id" ref="ai_product_demo.brand_vivo"/>
+            <field name="weight">0.20</field>
+            <field name="x_scenario_tags">拍照,性价比,日常使用</field>
+            <field name="x_selling_point">蔡司镜头+性价比旗舰</field>
+            <field name="x_target_people">拍照爱好者,预算有限用户</field>
+            <field name="sale_ok">1</field>
+            <field name="active">1</field>
+        </record>
+
+        <!-- OPPO手机 -->
+        <record id="demo_phone_017" model="product.template">
+            <field name="name">OPPO Find X7 Ultra</field>
+            <field name="default_code">DEMO-PHONE-017</field>
+            <field name="categ_id" ref="ai_product_demo.demo_phone"/>
+            <field name="list_price">5999.00</field>
+            <field name="standard_price">4400.00</field>
+            <field name="initial_purchase_cost">4400.00</field>
+            <field name="hs_code">123456</field>
+            <field name="description_sale">OPPO Find X7 Ultra，骁龙8 Gen3，哈苏影像，5000mAh电池，100W闪充</field>
+            <field name="brand_id" ref="ai_product_demo.brand_oppo"/>
+            <field name="weight">0.21</field>
+            <field name="x_scenario_tags">拍照,旗舰,商务</field>
+            <field name="x_selling_point">哈苏影像+骁龙8 Gen3</field>
+            <field name="x_target_people">拍照爱好者,商务人士,OPPO粉丝</field>
+            <field name="sale_ok">1</field>
+            <field name="active">1</field>
+        </record>
+
+        <record id="demo_phone_018" model="product.template">
+            <field name="name">OPPO Reno 11 Pro</field>
+            <field name="default_code">DEMO-PHONE-018</field>
+            <field name="categ_id" ref="ai_product_demo.demo_phone"/>
+            <field name="list_price">3499.00</field>
+            <field name="standard_price">2500.00</field>
+            <field name="initial_purchase_cost">2500.00</field>
+            <field name="hs_code">123456</field>
+            <field name="description_sale">OPPO Reno 11 Pro，天玑8200，单反级人像，80W闪充，轻薄设计</field>
+            <field name="brand_id" ref="ai_product_demo.brand_oppo"/>
+            <field name="weight">0.18</field>
+            <field name="x_scenario_tags">自拍,时尚,日常使用</field>
+            <field name="x_selling_point">单反级人像+轻薄时尚</field>
+            <field name="x_target_people">年轻用户,自拍爱好者,时尚人士</field>
+            <field name="sale_ok">1</field>
+            <field name="active">1</field>
+        </record>
+
+        <record id="demo_phone_019" model="product.template">
+            <field name="name">小米13 Ultra</field>
+            <field name="default_code">DEMO-PHONE-019</field>
+            <field name="categ_id" ref="ai_product_demo.demo_phone"/>
+            <field name="list_price">5999.00</field>
+            <field name="standard_price">4400.00</field>
+            <field name="initial_purchase_cost">4400.00</field>
+            <field name="hs_code">123456</field>
+            <field name="description_sale">小米13 Ultra，骁龙8 Gen2，1英寸徕卡主摄，120倍数码变焦</field>
+            <field name="brand_id" ref="ai_product_demo.brand_xiaomi"/>
+            <field name="weight">0.23</field>
+            <field name="x_scenario_tags">拍照,摄影,旗舰</field>
+            <field name="x_selling_point">1英寸徕卡主摄+120倍变焦</field>
+            <field name="x_target_people">摄影爱好者,小米粉丝</field>
+            <field name="sale_ok">1</field>
+            <field name="active">1</field>
+        </record>
+
+        <record id="demo_phone_020" model="product.template">
+            <field name="name">华为P50 Pro</field>
+            <field name="default_code">DEMO-PHONE-020</field>
+            <field name="categ_id" ref="ai_product_demo.demo_phone"/>
+            <field name="list_price">4488.00</field>
+            <field name="standard_price">3200.00</field>
+            <field name="initial_purchase_cost">3200.00</field>
+            <field name="hs_code">123456</field>
+            <field name="description_sale">华为P50 Pro，麒麟9000芯片，原色双影像单元，鸿蒙HarmonyOS 3</field>
+            <field name="brand_id" ref="ai_product_demo.brand_huawei"/>
+            <field name="weight">0.20</field>
+            <field name="x_scenario_tags">拍照,旗舰,国产</field>
+            <field name="x_selling_point">原色双影像+鸿蒙系统</field>
+            <field name="x_target_people">华为粉丝,拍照爱好者,支持国货</field>
+            <field name="sale_ok">1</field>
+            <field name="active">1</field>
+        </record>
+
+        <!-- ============================================
+             蓝牙耳机/音频类别 - 20个商品
+             ============================================ -->
+
+        <!-- 索尼耳机 -->
+        <record id="demo_earphone_001" model="product.template">
+            <field name="name">索尼WH-1000XM5无线降噪耳机</field>
+            <field name="default_code">DEMO-EARPHONE-001</field>
+            <field name="categ_id" ref="ai_product_demo.demo_earphone"/>
+            <field name="list_price">2699.00</field>
+            <field name="standard_price">1900.00</field>
+            <field name="initial_purchase_cost">1900.00</field>
+            <field name="hs_code">123456</field>
+            <field name="description_sale">索尼WH-1000XM5，业界领先主动降噪，30小时续航，LDAC高清音质，适合音乐发烧友</field>
+            <field name="brand_id" ref="ai_product_demo.brand_sony"/>
+            <field name="weight">0.25</field>
+            <field name="x_scenario_tags">音乐欣赏,商务出行,通勤,降噪需求</field>
+            <field name="x_selling_point">业界领先降噪+30小时续航</field>
+            <field name="x_target_people">音乐发烧友,商务人士,通勤族</field>
+            <field name="sale_ok">1</field>
+            <field name="active">1</field>
+        </record>
+
+        <record id="demo_earphone_002" model="product.template">
+            <field name="name">索尼WF-1000XM5真无线耳机</field>
+            <field name="default_code">DEMO-EARPHONE-002</field>
+            <field name="categ_id" ref="ai_product_demo.demo_earphone"/>
+            <field name="list_price">1999.00</field>
+            <field name="standard_price">1400.00</field>
+            <field name="initial_purchase_cost">1400.00</field>
+            <field name="hs_code">123456</field>
+            <field name="description_sale">索尼WF-1000XM5，真无线主动降噪，8小时续航，小巧便携</field>
+            <field name="brand_id" ref="ai_product_demo.brand_sony"/>
+            <field name="weight">0.06</field>
+            <field name="x_scenario_tags">通勤,运动,日常使用,降噪</field>
+            <field name="x_selling_point">真无线降噪+小巧便携</field>
+            <field name="x_target_people">通勤族,运动爱好者,便携需求用户</field>
+            <field name="sale_ok">1</field>
+            <field name="active">1</field>
+        </record>
+
+        <record id="demo_earphone_003" model="product.template">
+            <field name="name">索尼WH-XB910N重低音耳机</field>
+            <field name="default_code">DEMO-EARPHONE-003</field>
+            <field name="categ_id" ref="ai_product_demo.demo_earphone"/>
+            <field name="list_price">1299.00</field>
+            <field name="standard_price">900.00</field>
+            <field name="initial_purchase_cost">900.00</field>
+            <field name="hs_code">123456</field>
+            <field name="description_sale">索尼WH-XB910N，重低音增强，50小时续航，佩戴舒适</field>
+            <field name="brand_id" ref="ai_product_demo.brand_sony"/>
+            <field name="weight">0.25</field>
+            <field name="x_scenario_tags">音乐,游戏,重低音,长续航</field>
+            <field name="x_selling_point">重低音增强+50小时续航</field>
+            <field name="x_target_people">音乐爱好者,游戏玩家,重低音爱好者</field>
+            <field name="sale_ok">1</field>
+            <field name="active">1</field>
+        </record>
+
+        <!-- BOSE耳机 -->
+        <record id="demo_earphone_004" model="product.template">
+            <field name="name">BOSE QC45无线消噪耳机</field>
+            <field name="default_code">DEMO-EARPHONE-004</field>
+            <field name="categ_id" ref="ai_product_demo.demo_earphone"/>
+            <field name="list_price">2299.00</field>
+            <field name="standard_price">1600.00</field>
+            <field name="initial_purchase_cost">1600.00</field>
+            <field name="hs_code">123456</field>
+            <field name="description_sale">BOSE QC45，顶级消噪，舒适佩戴，24小时续航，Hi-Fi音质</field>
+            <field name="brand_id" ref="ai_product_demo.brand_bose"/>
+            <field name="weight">0.24</field>
+            <field name="x_scenario_tags">音乐欣赏,商务,降噪,舒适佩戴</field>
+            <field name="x_selling_point">顶级消噪+舒适佩戴体验</field>
+            <field name="x_target_people">商务人士,音乐爱好者,长时间佩戴需求</field>
+            <field name="sale_ok">1</field>
+            <field name="active">1</field>
+        </record>
+
+        <record id="demo_earphone_005" model="product.template">
+            <field name="name">BOSE QuietComfort Earbuds II</field>
+            <field name="default_code">DEMO-EARPHONE-005</field>
+            <field name="categ_id" ref="ai_product_demo.demo_earphone"/>
+            <field name="list_price">1699.00</field>
+            <field name="standard_price">1200.00</field>
+            <field name="initial_purchase_cost">1200.00</field>
+            <field name="hs_code">123456</field>
+            <field name="description_sale">BOSE QC Earbuds II，真无线主动降噪，个性化音效，6小时续航</field>
+            <field name="brand_id" ref="ai_product_demo.brand_bose"/>
+            <field name="weight">0.06</field>
+            <field name="x_scenario_tags">通勤,运动,降噪,真无线</field>
+            <field name="x_selling_point">真无线降噪+个性化音效</field>
+            <field name="x_target_people">通勤族,运动爱好者,BOSE粉丝</field>
+            <field name="sale_ok">1</field>
+            <field name="active">1</field>
+        </record>
+
+        <!-- 苹果耳机 -->
+        <record id="demo_earphone_006" model="product.template">
+            <field name="name">AirPods Pro 2代</field>
+            <field name="default_code">DEMO-EARPHONE-006</field>
+            <field name="categ_id" ref="ai_product_demo.demo_earphone"/>
+            <field name="list_price">1899.00</field>
+            <field name="standard_price">1350.00</field>
+            <field name="initial_purchase_cost">1350.00</field>
+            <field name="hs_code">123456</field>
+            <field name="description_sale">AirPods Pro 2，主动降噪，自适应音频，个性化空间音频，6小时续航</field>
+            <field name="brand_id" ref="ai_product_demo.brand_apple"/>
+            <field name="weight">0.05</field>
+            <field name="x_scenario_tags">通勤,日常,降噪,苹果生态</field>
+            <field name="x_selling_point">主动降噪+苹果生态完美融合</field>
+            <field name="x_target_people">苹果用户,通勤族,日常使用</field>
+            <field name="sale_ok">1</field>
+            <field name="active">1</field>
+        </record>
+
+        <record id="demo_earphone_007" model="product.template">
+            <field name="name">AirPods Max</field>
+            <field name="default_code">DEMO-EARPHONE-007</field>
+            <field name="categ_id" ref="ai_product_demo.demo_earphone"/>
+            <field name="list_price">4399.00</field>
+            <field name="standard_price">3200.00</field>
+            <field name="initial_purchase_cost">3200.00</field>
+            <field name="hs_code">123456</field>
+            <field name="description_sale">AirPods Max，头戴式主动降噪，个性化空间音频，20小时续航，极致音质</field>
+            <field name="brand_id" ref="ai_product_demo.brand_apple"/>
+            <field name="weight">0.38</field>
+            <field name="x_scenario_tags">音乐欣赏,在家使用,苹果生态,降噪</field>
+            <field name="x_selling_point">头戴式旗舰+空间音频</field>
+            <field name="x_target_people">苹果粉丝,音乐发烧友,追求极致音质</field>
+            <field name="sale_ok">1</field>
+            <field name="active">1</field>
+        </record>
+
+        <record id="demo_earphone_008" model="product.template">
+            <field name="name">AirPods 3代</field>
+            <field name="default_code">DEMO-EARPHONE-008</field>
+            <field name="categ_id" ref="ai_product_demo.demo_earphone"/>
+            <field name="list_price">1349.00</field>
+            <field name="standard_price">950.00</field>
+            <field name="initial_purchase_cost">950.00</field>
+            <field name="hs_code">123456</field>
+            <field name="description_sale">AirPods 3，空间音频，抗汗抗水，6小时续航，半入耳式舒适佩戴</field>
+            <field name="brand_id" ref="ai_product_demo.brand_apple"/>
+            <field name="weight">0.04</field>
+            <field name="x_scenario_tags">日常使用,运动,苹果生态,舒适佩戴</field>
+            <field name="x_selling_point">空间音频+半入耳舒适佩戴</field>
+            <field name="x_target_people">苹果用户,日常使用,运动爱好者</field>
+            <field name="sale_ok">1</field>
+            <field name="active">1</field>
+        </record>
+
+        <!-- 华为耳机 -->
+        <record id="demo_earphone_009" model="product.template">
+            <field name="name">华为FreeBuds Pro 3</field>
+            <field name="default_code">DEMO-EARPHONE-009</field>
+            <field name="categ_id" ref="ai_product_demo.demo_earphone"/>
+            <field name="list_price">1499.00</field>
+            <field name="standard_price">1050.00</field>
+            <field name="initial_purchase_cost">1050.00</field>
+            <field name="hs_code">123456</field>
+            <field name="description_sale">华为FreeBuds Pro 3，主动降噪，麒麟A2芯片，33小时总续航</field>
+            <field name="brand_id" ref="ai_product_demo.brand_huawei_audio"/>
+            <field name="weight">0.05</field>
+            <field name="x_scenario_tags">通勤,降噪,华为生态,长续航</field>
+            <field name="x_selling_point">麒麟A2芯片+33小时续航</field>
+            <field name="x_target_people">华为用户,商务人士,长续航需求</field>
+            <field name="sale_ok">1</field>
+            <field name="active">1</field>
+        </record>
+
+        <record id="demo_earphone_010" model="product.template">
+            <field name="name">华为FreeBuds 5</field>
+            <field name="default_code">DEMO-EARPHONE-010</field>
+            <field name="categ_id" ref="ai_product_demo.demo_earphone"/>
+            <field name="list_price">999.00</field>
+            <field name="standard_price">700.00</field>
+            <field name="initial_purchase_cost">700.00</field>
+            <field name="hs_code">123456</field>
+            <field name="description_sale">华为FreeBuds 5，半开放式主动降噪，流畅曲线设计，30小时续航</field>
+            <field name="brand_id" ref="ai_product_demo.brand_huawei_audio"/>
+            <field name="weight">0.05</field>
+            <field name="x_scenario_tags">日常使用,舒适佩戴,华为生态</field>
+            <field name="x_selling_point">半开放降噪+时尚设计</field>
+            <field name="x_target_people">华为用户,时尚人士,舒适佩戴需求</field>
+            <field name="sale_ok">1</field>
+            <field name="active">1</field>
+        </record>
+
+        <!-- 漫步者耳机 -->
+        <record id="demo_earphone_011" model="product.template">
+            <field name="name">漫步者NeoBuds Pro 2</field>
+            <field name="default_code">DEMO-EARPHONE-011</field>
+            <field name="categ_id" ref="ai_product_demo.demo_earphone"/>
+            <field name="list_price">899.00</field>
+            <field name="standard_price">630.00</field>
+            <field name="initial_purchase_cost">630.00</field>
+            <field name="hs_code">123456</field>
+            <field name="description_sale">漫步者NeoBuds Pro 2，圈铁双单元，主动降噪，LDAC高清，游戏模式</field>
+            <field name="brand_id" ref="ai_product_demo.brand_edifier"/>
+            <field name="weight">0.05</field>
+            <field name="x_scenario_tags">音乐,游戏,高性价比,降噪</field>
+            <field name="x_selling_point">圈铁双单元+LDAC高清</field>
+            <field name="x_target_people">音乐爱好者,游戏玩家,性价比追求者</field>
+            <field name="sale_ok">1</field>
+            <field name="active">1</field>
+        </record>
+
+        <record id="demo_earphone_012" model="product.template">
+            <field name="name">漫步者W820NB头戴式耳机</field>
+            <field name="default_code">DEMO-EARPHONE-012</field>
+            <field name="categ_id" ref="ai_product_demo.demo_earphone"/>
+            <field name="list_price">399.00</field>
+            <field name="standard_price">280.00</field>
+            <field name="initial_purchase_cost">280.00</field>
+            <field name="hs_code">123456</field>
+            <field name="description_sale">漫步者W820NB，主动降噪，50小时续航，轻量化设计，高性价比</field>
+            <field name="brand_id" ref="ai_product_demo.brand_edifier"/>
+            <field name="weight">0.22</field>
+            <field name="x_scenario_tags">学习,日常,长续航,高性价比</field>
+            <field name="x_selling_point">主动降噪+50小时续航+高性价比</field>
+            <field name="x_target_people">学生党,预算有限,长续航需求</field>
+            <field name="sale_ok">1</field>
+            <field name="active">1</field>
+        </record>
+
+        <!-- 森海塞尔耳机 -->
+        <record id="demo_earphone_013" model="product.template">
+            <field name="name">森海塞尔Momentum 4无线耳机</field>
+            <field name="default_code">DEMO-EARPHONE-013</field>
+            <field name="categ_id" ref="ai_product_demo.demo_earphone"/>
+            <field name="list_price">2199.00</field>
+            <field name="standard_price">1550.00</field>
+            <field name="initial_purchase_cost">1550.00</field>
+            <field name="hs_code">123456</field>
+            <field name="description_sale">森海塞尔Momentum 4，顶级音质，自适应降噪，60小时续航，奢华设计</field>
+            <field name="brand_id" ref="ai_product_demo.brand_sennheiser"/>
+            <field name="weight">0.28</field>
+            <field name="x_scenario_tags">音乐欣赏,发烧友,降噪,奢华</field>
+            <field name="x_selling_point">顶级音质+60小时续航</field>
+            <field name="x_target_people">音乐发烧友,音质追求者,奢华用户</field>
+            <field name="sale_ok">1</field>
+            <field name="active">1</field>
+        </record>
+
+        <record id="demo_earphone_014" model="product.template">
+            <field name="name">森海塞尔CX Plus真无线</field>
+            <field name="default_code">DEMO-EARPHONE-014</field>
+            <field name="categ_id" ref="ai_product_demo.demo_earphone"/>
+            <field name="list_price">999.00</field>
+            <field name="standard_price">700.00</field>
+            <field name="initial_purchase_cost">700.00</field>
+            <field name="hs_code">123456</field>
+            <field name="description_sale">森海塞尔CX Plus，真无线，主动降噪，Hi-Fi音质，8小时续航</field>
+            <field name="brand_id" ref="ai_product_demo.brand_sennheiser"/>
+            <field name="weight">0.05</field>
+            <field name="x_scenario_tags">音乐,通勤,降噪,Hi-Fi</field>
+            <field name="x_selling_point">Hi-Fi音质+真无线降噪</field>
+            <field name="x_target_people">音乐爱好者,森海粉丝,Hi-Fi追求者</field>
+            <field name="sale_ok">1</field>
+            <field name="active">1</field>
+        </record>
+
+        <record id="demo_earphone_015" model="product.template">
+            <field name="name">索尼INZONE H9游戏耳机</field>
+            <field name="default_code">DEMO-EARPHONE-015</field>
+            <field name="categ_id" ref="ai_product_demo.demo_earphone"/>
+            <field name="list_price">1699.00</field>
+            <field name="standard_price">1200.00</field>
+            <field name="initial_purchase_cost">1200.00</field>
+            <field name="hs_code">123456</field>
+            <field name="description_sale">索尼INZONE H9，无线游戏耳机，头部追踪，360游戏空间音效，32小时续航</field>
+            <field name="brand_id" ref="ai_product_demo.brand_sony"/>
+            <field name="weight">0.33</field>
+            <field name="x_scenario_tags">游戏,PS5,沉浸音效,长续航</field>
+            <field name="x_selling_point">360游戏空间音效+PS5完美搭配</field>
+            <field name="x_target_people">游戏玩家,PS5用户,沉浸体验需求</field>
+            <field name="sale_ok">1</field>
+            <field name="active">1</field>
+        </record>
+
+        <record id="demo_earphone_016" model="product.template">
+            <field name="name">BOSE SoundLink头戴式耳机</field>
+            <field name="default_code">DEMO-EARPHONE-016</field>
+            <field name="categ_id" ref="ai_product_demo.demo_earphone"/>
+            <field name="list_price">1299.00</field>
+            <field name="standard_price">910.00</field>
+            <field name="initial_purchase_cost">910.00</field>
+            <field name="hs_code">123456</field>
+            <field name="description_sale">BOSE SoundLink，无线蓝牙耳机，顶级音质，15小时续航，折叠便携</field>
+            <field name="brand_id" ref="ai_product_demo.brand_bose"/>
+            <field name="weight">0.20</field>
+            <field name="x_scenario_tags">音乐,旅行,便携,蓝牙</field>
+            <field name="x_selling_point">顶级音质+便携折叠设计</field>
+            <field name="x_target_people">旅行爱好者,音乐爱好者,便携需求</field>
+            <field name="sale_ok">1</field>
+            <field name="active">1</field>
+        </record>
+
+        <record id="demo_earphone_017" model="product.template">
+            <field name="name">AirPods 2代</field>
+            <field name="default_code">DEMO-EARPHONE-017</field>
+            <field name="categ_id" ref="ai_product_demo.demo_earphone"/>
+            <field name="list_price">999.00</field>
+            <field name="standard_price">700.00</field>
+            <field name="initial_purchase_cost">700.00</field>
+            <field name="hs_code">123456</field>
+            <field name="description_sale">AirPods 2，无线耳机，Siri语音助手，5小时续航，简洁设计</field>
+            <field name="brand_id" ref="ai_product_demo.brand_apple"/>
+            <field name="weight">0.04</field>
+            <field name="x_scenario_tags">日常使用,苹果生态,简单便捷</field>
+            <field name="x_selling_point">Siri语音助手+苹果生态入门</field>
+            <field name="x_target_people">苹果用户,入门用户,简单需求</field>
+            <field name="sale_ok">1</field>
+            <field name="active">1</field>
+        </record>
+
+        <record id="demo_earphone_018" model="product.template">
+            <field name="name">华为FreeLace Pro 2</field>
+            <field name="default_code">DEMO-EARPHONE-018</field>
+            <field name="categ_id" ref="ai_product_demo.demo_earphone"/>
+            <field name="list_price">599.00</field>
+            <field name="standard_price">420.00</field>
+            <field name="initial_purchase_cost">420.00</field>
+            <field name="hs_code">123456</field>
+            <field name="description_sale">华为FreeLace Pro 2，颈挂式设计，主动降噪，25小时续航，快充技术</field>
+            <field name="brand_id" ref="ai_product_demo.brand_huawei_audio"/>
+            <field name="weight">0.04</field>
+            <field name="x_scenario_tags">运动,通勤,降噪,华为生态</field>
+            <field name="x_selling_point">颈挂设计+25小时续航</field>
+            <field name="x_target_people">运动爱好者,华为用户,长续航需求</field>
+            <field name="sale_ok">1</field>
+            <field name="active">1</field>
+        </record>
+
+        <record id="demo_earphone_019" model="product.template">
+            <field name="name">小米Buds 4 Pro</field>
+            <field name="default_code">DEMO-EARPHONE-019</field>
+            <field name="categ_id" ref="ai_product_demo.demo_earphone"/>
+            <field name="list_price">999.00</field>
+            <field name="standard_price">700.00</field>
+            <field name="initial_purchase_cost">700.00</field>
+            <field name="hs_code">123456</field>
+            <field name="description_sale">小米Buds 4 Pro，主动降噪，48dB深度降噪，9小时续航，无线充电</field>
+            <field name="brand_id" ref="ai_product_demo.brand_xiaomi"/>
+            <field name="weight">0.05</field>
+            <field name="x_scenario_tags">通勤,降噪,小米生态,高性价比</field>
+            <field name="x_selling_point">48dB深度降噪+无线充电</field>
+            <field name="x_target_people">小米用户,通勤族,降噪需求</field>
+            <field name="sale_ok">1</field>
+            <field name="active">1</field>
+        </record>
+
+        <record id="demo_earphone_020" model="product.template">
+            <field name="name">OPPO Enco X2</field>
+            <field name="default_code">DEMO-EARPHONE-020</field>
+            <field name="categ_id" ref="ai_product_demo.demo_earphone"/>
+            <field name="list_price">899.00</field>
+            <field name="standard_price">630.00</field>
+            <field name="initial_purchase_cost">630.00</field>
+            <field name="hs_code">123456</field>
+            <field name="description_sale">OPPO Enco X2，联合丹拿调音，主动降噪，40小时续航，无线充电</field>
+            <field name="brand_id" ref="ai_product_demo.brand_oppo"/>
+            <field name="weight">0.05</field>
+            <field name="x_scenario_tags">音乐,降噪,OPPO生态,长续航</field>
+            <field name="x_selling_point">丹拿调音+40小时续航</field>
+            <field name="x_target_people">音乐爱好者,OPPO用户,音质追求者</field>
+            <field name="sale_ok">1</field>
+            <field name="active">1</field>
+        </record>
+
+        <!-- ============================================
+             笔记本/办公类别 - 20个商品
+             ============================================ -->
+
+        <!-- 联想笔记本 -->
+        <record id="demo_laptop_001" model="product.template">
+            <field name="name">联想ThinkPad X1 Carbon 2024</field>
+            <field name="default_code">DEMO-LAPTOP-001</field>
+            <field name="categ_id" ref="ai_product_demo.demo_laptop"/>
+            <field name="list_price">12999.00</field>
+            <field name="standard_price">9500.00</field>
+            <field name="initial_purchase_cost">9500.00</field>
+            <field name="hs_code">123456</field>
+            <field name="description_sale">ThinkPad X1 Carbon，Intel Core Ultra7处理器，14英寸2.8K OLED屏，轻薄商务本，1.12kg超轻机身</field>
+            <field name="brand_id" ref="ai_product_demo.brand_lenovo"/>
+            <field name="weight">1.12</field>
+            <field name="x_scenario_tags">商务办公,出差便携,文档处理,高管用户</field>
+            <field name="x_selling_point">轻薄商务旗舰+OLED高清屏</field>
+            <field name="x_target_people">商务人士,企业用户,经常出差者</field>
+            <field name="sale_ok">1</field>
+            <field name="active">1</field>
+        </record>
+
+        <record id="demo_laptop_002" model="product.template">
+            <field name="name">联想ThinkBook 14+ 2024</field>
+            <field name="default_code">DEMO-LAPTOP-002</field>
+            <field name="categ_id" ref="ai_product_demo.demo_laptop"/>
+            <field name="list_price">5999.00</field>
+            <field name="standard_price">4400.00</field>
+            <field name="initial_purchase_cost">4400.00</field>
+            <field name="hs_code">123456</field>
+            <field name="description_sale">ThinkBook 14+，Intel Core Ultra5，14.5英寸3K屏，联想小天AI助手，高性价比商务本</field>
+            <field name="brand_id" ref="ai_product_demo.brand_lenovo"/>
+            <field name="weight">1.5</field>
+            <field name="x_scenario_tags">商务办公,日常使用,AI功能</field>
+            <field name="x_selling_point">AI助手+高性价比商务本</field>
+            <field name="x_target_people">商务人士,中小企业用户,性价比追求者</field>
+            <field name="sale_ok">1</field>
+            <field name="active">1</field>
+        </record>
+
+        <record id="demo_laptop_003" model="product.template">
+            <field name="name">联想拯救者Y9000P 2024</field>
+            <field name="default_code">DEMO-LAPTOP-003</field>
+            <field name="categ_id" ref="ai_product_demo.demo_laptop"/>
+            <field name="list_price">10999.00</field>
+            <field name="standard_price">8200.00</field>
+            <field name="initial_purchase_cost">8200.00</field>
+            <field name="hs_code">123456</field>
+            <field name="description_sale">拯救者Y9000P，Intel i9-14900HX，RTX 4060显卡，16英寸2.5K屏，240Hz刷新率，专业游戏本</field>
+            <field name="brand_id" ref="ai_product_demo.brand_lenovo"/>
+            <field name="weight">2.5</field>
+            <field name="x_scenario_tags">游戏,图形处理,视频剪辑,高性能</field>
+            <field name="x_selling_point">i9+RTX 4060游戏旗舰</field>
+            <field name="x_target_people">游戏玩家,设计师,视频剪辑师</field>
+            <field name="sale_ok">1</field>
+            <field name="active">1</field>
+        </record>
+
+        <record id="demo_laptop_004" model="product.template">
+            <field name="name">联想小新Pro 16</field>
+            <field name="default_code">DEMO-LAPTOP-004</field>
+            <field name="categ_id" ref="ai_product_demo.demo_laptop"/>
+            <field name="list_price">6499.00</field>
+            <field name="standard_price">4800.00</field>
+            <field name="initial_purchase_cost">4800.00</field>
+            <field name="hs_code">123456</field>
+            <field name="description_sale">小新Pro 16，AMD R7-7845HS，16英寸2.5K屏，120Hz刷新率，轻薄高性能</field>
+            <field name="brand_id" ref="ai_product_demo.brand_lenovo"/>
+            <field name="weight">1.8</field>
+            <field name="x_scenario_tags">日常办公,学习,轻度游戏,轻薄</field>
+            <field name="x_selling_point">AMD旗舰处理器+轻薄大屏</field>
+            <field name="x_target_people">学生党,办公族,轻度游戏用户</field>
+            <field name="sale_ok">1</field>
+            <field name="active">1</field>
+        </record>
+
+        <!-- 戴尔笔记本 -->
+        <record id="demo_laptop_005" model="product.template">
+            <field name="name">戴尔XPS 15</field>
+            <field name="default_code">DEMO-LAPTOP-005</field>
+            <field name="categ_id" ref="ai_product_demo.demo_laptop"/>
+            <field name="list_price">13999.00</field>
+            <field name="standard_price">10500.00</field>
+            <field name="initial_purchase_cost">10500.00</field>
+            <field name="hs_code">123456</field>
+            <field name="description_sale">戴尔XPS 15，Intel Core i7-13700H，15.6英寸3.5K OLED屏，RTX 4060，轻薄创意本</field>
+            <field name="brand_id" ref="ai_product_demo.brand_dell"/>
+            <field name="weight">1.86</field>
+            <field name="x_scenario_tags">创意设计,商务,视频剪辑,轻薄</field>
+            <field name="x_selling_point">OLED屏幕+创意设计旗舰</field>
+            <field name="x_target_people">设计师,视频剪辑师,商务人士</field>
+            <field name="sale_ok">1</field>
+            <field name="active">1</field>
+        </record>
+
+        <record id="demo_laptop_006" model="product.template">
+            <field name="name">戴尔游匣G16</field>
+            <field name="default_code">DEMO-LAPTOP-006</field>
+            <field name="categ_id" ref="ai_product_demo.demo_laptop"/>
+            <field name="list_price">8999.00</field>
+            <field name="standard_price">6800.00</field>
+            <field name="initial_purchase_cost">6800.00</field>
+            <field name="hs_code">123456</field>
+            <field name="description_sale">游匣G16，Intel i7-13650HX，RTX 4060，16英寸2.5K 240Hz，游戏笔记本</field>
+            <field name="brand_id" ref="ai_product_demo.brand_dell"/>
+            <field name="weight">2.7</field>
+            <field name="x_scenario_tags">游戏,高性能,散热,电竞</field>
+            <field name="x_selling_point">i7+RTX 4060电竞游戏本</field>
+            <field name="x_target_people">游戏玩家,电竞爱好者,高性能需求</field>
+            <field name="sale_ok">1</field>
+            <field name="active">1</field>
+        </record>
+
+        <record id="demo_laptop_007" model="product.template">
+            <field name="name">戴尔灵越14 Pro</field>
+            <field name="default_code">DEMO-LAPTOP-007</field>
+            <field name="categ_id" ref="ai_product_demo.demo_laptop"/>
+            <field name="list_price">5499.00</field>
+            <field name="standard_price">4000.00</field>
+            <field name="initial_purchase_cost">4000.00</field>
+            <field name="hs_code">123456</field>
+            <field name="description_sale">灵越14 Pro，Intel Core i5-1340P，14英寸2.5K屏，轻薄办公本，1.59kg</field>
+            <field name="brand_id" ref="ai_product_demo.brand_dell"/>
+            <field name="weight">1.59</field>
+            <field name="x_scenario_tags">办公,学习,便携,日常</field>
+            <field name="x_selling_point">2.5K屏幕+轻薄便携</field>
+            <field name="x_target_people">办公族,学生党,便携需求</field>
+            <field name="sale_ok">1</field>
+            <field name="active">1</field>
+        </record>
+
+        <!-- 华为笔记本 -->
+        <record id="demo_laptop_008" model="product.template">
+            <field name="name">华为MateBook X Pro 2024</field>
+            <field name="default_code">DEMO-LAPTOP-008</field>
+            <field name="categ_id" ref="ai_product_demo.demo_laptop"/>
+            <field name="list_price">12999.00</field>
+            <field name="standard_price">9800.00</field>
+            <field name="initial_purchase_cost">9800.00</field>
+            <field name="hs_code">123456</field>
+            <field name="description_sale">MateBook X Pro，Intel Core Ultra9，14.2英寸3.1K触控屏，鸿蒙生态，980g超轻</field>
+            <field name="brand_id" ref="ai_product_demo.brand_huawei"/>
+            <field name="weight">0.98</field>
+            <field name="x_scenario_tags">商务,出差,华为生态,极致轻薄</field>
+            <field name="x_selling_point">980g超轻+鸿蒙生态旗舰</field>
+            <field name="x_target_people">商务精英,华为粉丝,极致轻薄需求</field>
+            <field name="sale_ok">1</field>
+            <field name="active">1</field>
+        </record>
+
+        <record id="demo_laptop_009" model="product.template">
+            <field name="name">华为MateBook 14s</field>
+            <field name="default_code">DEMO-LAPTOP-009</field>
+            <field name="categ_id" ref="ai_product_demo.demo_laptop"/>
+            <field name="list_price">7899.00</field>
+            <field name="standard_price">5900.00</field>
+            <field name="initial_purchase_cost">5900.00</field>
+            <field name="hs_code">123456</field>
+            <field name="description_sale">MateBook 14s，Intel Core i7-13700H，14.2英寸2.5K 120Hz触控屏，华为超级终端</field>
+            <field name="brand_id" ref="ai_product_demo.brand_huawei"/>
+            <field name="weight">1.43</field>
+            <field name="x_scenario_tags">办公,设计,华为生态,触控</field>
+            <field name="x_selling_point">触控屏+华为超级终端</field>
+            <field name="x_target_people">设计师,华为用户,办公族</field>
+            <field name="sale_ok">1</field>
+            <field name="active">1</field>
+        </record>
+
+        <record id="demo_laptop_010" model="product.template">
+            <field name="name">华为MateBook D 16</field>
+            <field name="default_code">DEMO-LAPTOP-010</field>
+            <field name="categ_id" ref="ai_product_demo.demo_laptop"/>
+            <field name="list_price">5499.00</field>
+            <field name="standard_price">4000.00</field>
+            <field name="initial_purchase_cost">4000.00</field>
+            <field name="hs_code">123456</field>
+            <field name="description_sale">MateBook D 16，Intel Core i5-13420H，16英寸护眼屏，70Wh大容量电池</field>
+            <field name="brand_id" ref="ai_product_demo.brand_huawei"/>
+            <field name="weight">1.68</field>
+            <field name="x_scenario_tags">办公,学习,大屏,长续航</field>
+            <field name="x_selling_point">16寸大屏+70Wh长续航</field>
+            <field name="x_target_people">办公族,学生党,大屏爱好者</field>
+            <field name="sale_ok">1</field>
+            <field name="active">1</field>
+        </record>
+
+        <!-- 苹果笔记本 -->
+        <record id="demo_laptop_011" model="product.template">
+            <field name="name">MacBook Pro 16寸 M3 Max</field>
+            <field name="default_code">DEMO-LAPTOP-011</field>
+            <field name="categ_id" ref="ai_product_demo.demo_laptop"/>
+            <field name="list_price">27999.00</field>
+            <field name="standard_price">22000.00</field>
+            <field name="initial_purchase_cost">22000.00</field>
+            <field name="hs_code">123456</field>
+            <field name="description_sale">MacBook Pro 16，M3 Max芯片，36GB内存，1TB SSD，Liquid Retina XDR显示屏</field>
+            <field name="brand_id" ref="ai_product_demo.brand_apple"/>
+            <field name="weight">2.14</field>
+            <field name="x_scenario_tags">专业创作,视频剪辑,开发,苹果生态</field>
+            <field name="x_selling_point">M3 Max专业创作天花板</field>
+            <field name="x_target_people">专业创作者,开发者,果粉</field>
+            <field name="sale_ok">1</field>
+            <field name="active">1</field>
+        </record>
+
+        <record id="demo_laptop_012" model="product.template">
+            <field name="name">MacBook Pro 14寸 M3 Pro</field>
+            <field name="default_code">DEMO-LAPTOP-012</field>
+            <field name="categ_id" ref="ai_product_demo.demo_laptop"/>
+            <field name="list_price">16999.00</field>
+            <field name="standard_price">13000.00</field>
+            <field name="initial_purchase_cost">13000.00</field>
+            <field name="hs_code">123456</field>
+            <field name="description_sale">MacBook Pro 14，M3 Pro芯片，18GB内存，512GB SSD，Liqui Retina XDR显示屏</field>
+            <field name="brand_id" ref="ai_product_demo.brand_apple"/>
+            <field name="weight">1.6</field>
+            <field name="x_scenario_tags">专业创作,便携,开发,苹果生态</field>
+            <field name="x_selling_point">M3 Pro性能+便携平衡</field>
+            <field name="x_target_people">开发者,设计师,苹果用户</field>
+            <field name="sale_ok">1</field>
+            <field name="active">1</field>
+        </record>
+
+        <record id="demo_laptop_013" model="product.template">
+            <field name="name">MacBook Air 15寸 M3</field>
+            <field name="default_code">DEMO-LAPTOP-013</field>
+            <field name="categ_id" ref="ai_product_demo.demo_laptop"/>
+            <field name="list_price">12999.00</field>
+            <field name="standard_price">10000.00</field>
+            <field name="initial_purchase_cost">10000.00</field>
+            <field name="hs_code">123456</field>
+            <field name="description_sale">MacBook Air 15，M3芯片，15.3英寸Liquid Retina显示屏，1.51kg超薄长续航</field>
+            <field name="brand_id" ref="ai_product_demo.brand_apple"/>
+            <field name="weight">1.51</field>
+            <field name="x_scenario_tags">日常办公,学习,便携,苹果生态</field>
+            <field name="x_selling_point">M3芯片+15寸大屏超薄</field>
+            <field name="x_target_people">办公族,学生,苹果用户</field>
+            <field name="sale_ok">1</field>
+            <field name="active">1</field>
+        </record>
+
+        <record id="demo_laptop_014" model="product.template">
+            <field name="name">MacBook Air 13寸 M3</field>
+            <field name="default_code">DEMO-LAPTOP-014</field>
+            <field name="categ_id" ref="ai_product_demo.demo_laptop"/>
+            <field name="list_price">9999.00</field>
+            <field name="standard_price">7800.00</field>
+            <field name="initial_purchase_cost">7800.00</field>
+            <field name="hs_code">123456</field>
+            <field name="description_sale">MacBook Air 13，M3芯片，13.6英寸Liquid Retina显示屏，1.24kg极致轻薄</field>
+            <field name="brand_id" ref="ai_product_demo.brand_apple"/>
+            <field name="weight">1.24</field>
+            <field name="x_scenario_tags">便携,日常办公,学习,苹果生态</field>
+            <field name="x_selling_point">M3芯片+1.24kg极致轻薄</field>
+            <field name="x_target_people">商务便携,学生,苹果用户</field>
+            <field name="sale_ok">1</field>
+            <field name="active">1</field>
+        </record>
+
+        <!-- 华硕笔记本 -->
+        <record id="demo_laptop_015" model="product.template">
+            <field name="name">华硕ROG枪神8 Plus</field>
+            <field name="default_code">DEMO-LAPTOP-015</field>
+            <field name="categ_id" ref="ai_product_demo.demo_laptop"/>
+            <field name="list_price">15999.00</field>
+            <field name="standard_price">12000.00</field>
+            <field name="initial_purchase_cost">12000.00</field>
+            <field name="hs_code">123456</field>
+            <field name="description_sale">ROG枪神8 Plus，Intel i9-14900HX，RTX 4070，18英寸2.5K 240Hz，液金导热</field>
+            <field name="brand_id" ref="ai_product_demo.brand_asus"/>
+            <field name="weight">3.1</field>
+            <field name="x_scenario_tags">游戏,电竞,高性能,散热</field>
+            <field name="x_selling_point">i9+RTX 4070旗舰电竞本</field>
+            <field name="x_target_people">电竞玩家,游戏发烧友,高性能需求</field>
+            <field name="sale_ok">1</field>
+            <field name="active">1</field>
+        </record>
+
+        <record id="demo_laptop_016" model="product.template">
+            <field name="name">华硕灵耀14</field>
+            <field name="default_code">DEMO-LAPTOP-016</field>
+            <field name="categ_id" ref="ai_product_demo.demo_laptop"/>
+            <field name="list_price">7499.00</field>
+            <field name="standard_price">5600.00</field>
+            <field name="initial_purchase_cost">5600.00</field>
+            <field name="hs_code">123456</field>
+            <field name="description_sale">灵耀14，Intel Core Ultra7，14英寸2.8K OLED屏，1.3kg超轻薄，75Wh电池</field>
+            <field name="brand_id" ref="ai_product_demo.brand_asus"/>
+            <field name="weight">1.3</field>
+            <field name="x_scenario_tags">商务,便携,OLED屏幕,长续航</field>
+            <field name="x_selling_point">OLED屏+75Wh长续航旗舰</field>
+            <field name="x_target_people">商务人士,便携需求,OLED爱好者</field>
+            <field name="sale_ok">1</field>
+            <field name="active">1</field>
+        </record>
+
+        <!-- 惠普笔记本 -->
+        <record id="demo_laptop_017" model="product.template">
+            <field name="name">惠普暗影精灵9</field>
+            <field name="default_code">DEMO-LAPTOP-017</field>
+            <field name="categ_id" ref="ai_product_demo.demo_laptop"/>
+            <field name="list_price">8999.00</field>
+            <field name="standard_price">6800.00</field>
+            <field name="initial_purchase_cost">6800.00</field>
+            <field name="hs_code">123456</field>
+            <field name="description_sale">暗影精灵9，Intel i7-13620H，RTX 4060，16.1英寸165Hz，高性价比游戏本</field>
+            <field name="brand_id" ref="ai_product_demo.brand_hp"/>
+            <field name="weight">2.4</field>
+            <field name="x_scenario_tags">游戏,性价比,高性能</field>
+            <field name="x_selling_point">RTX 4060+高性价比游戏本</field>
+            <field name="x_target_people">游戏玩家,性价比追求者</field>
+            <field name="sale_ok">1</field>
+            <field name="active">1</field>
+        </record>
+
+        <record id="demo_laptop_018" model="product.template">
+            <field name="name">惠普战66六代</field>
+            <field name="default_code">DEMO-LAPTOP-018</field>
+            <field name="categ_id" ref="ai_product_demo.demo_laptop"/>
+            <field name="list_price">5299.00</field>
+            <field name="standard_price">3900.00</field>
+            <field name="initial_purchase_cost">3900.00</field>
+            <field name="hs_code">123456</field>
+            <field name="description_sale">战66六代，Intel Core i5-1340P，14英寸高色域屏，接口丰富，扩展性好</field>
+            <field name="brand_id" ref="ai_product_demo.brand_hp"/>
+            <field name="weight">1.42</field>
+            <field name="x_scenario_tags">办公,商务,扩展性,接口丰富</field>
+            <field name="x_selling_point">接口丰富+扩展性好商务本</field>
+            <field name="x_target_people">商务办公,IT运维,多接口需求</field>
+            <field name="sale_ok">1</field>
+            <field name="active">1</field>
+        </record>
+
+        <record id="demo_laptop_019" model="product.template">
+            <field name="name">联想ThinkPad T14p</field>
+            <field name="default_code">DEMO-LAPTOP-019</field>
+            <field name="categ_id" ref="ai_product_demo.demo_laptop"/>
+            <field name="list_price">7999.00</field>
+            <field name="standard_price">6000.00</field>
+            <field name="initial_purchase_cost">6000.00</field>
+            <field name="hs_code">123456</field>
+            <field name="description_sale">ThinkPad T14p，Intel Core i7-13700H，14英寸2.2K屏，ThinkPad经典键盘，工程师首选</field>
+            <field name="brand_id" ref="ai_product_demo.brand_lenovo"/>
+            <field name="weight">1.56</field>
+            <field name="x_scenario_tags">工程师,开发,商务,经典键盘</field>
+            <field name="x_selling_point">经典键盘+工程师首选</field>
+            <field name="x_target_people">工程师,开发者,ThinkPad粉丝</field>
+            <field name="sale_ok">1</field>
+            <field name="active">1</field>
+        </record>
+
+        <record id="demo_laptop_020" model="product.template">
+            <field name="name">戴尔Precision 5680</field>
+            <field name="default_code">DEMO-LAPTOP-020</field>
+            <field name="categ_id" ref="ai_product_demo.demo_laptop"/>
+            <field name="list_price">19999.00</field>
+            <field name="standard_price">15500.00</field>
+            <field name="initial_purchase_cost">15500.00</field>
+            <field name="hs_code">123456</field>
+            <field name="description_sale">Precision 5680，Intel Core i9-13950H，RTX A1000，16英寸FHD+屏，移动工作站</field>
+            <field name="brand_id" ref="ai_product_demo.brand_dell"/>
+            <field name="weight">1.91</field>
+            <field name="x_scenario_tags">专业设计,工程建模,CAD,工作站</field>
+            <field name="x_selling_point">RTX A1000专业移动工作站</field>
+            <field name="x_target_people">工程师,设计师,专业用户</field>
+            <field name="sale_ok">1</field>
+            <field name="active">1</field>
+        </record>
+
+        <!-- ============================================
+             家电/小家电类别 - 20个商品
+             ============================================ -->
+
+        <!-- 美的家电 -->
+        <record id="demo_appliance_001" model="product.template">
+            <field name="name">美的变频空调KFR-35GW</field>
+            <field name="default_code">DEMO-APPLIANCE-001</field>
+            <field name="categ_id" ref="ai_product_demo.demo_appliance"/>
+            <field name="list_price">2699.00</field>
+            <field name="standard_price">1900.00</field>
+            <field name="initial_purchase_cost">1900.00</field>
+            <field name="hs_code">123456</field>
+            <field name="description_sale">美的变频空调，1.5匹，冷暖空调，智能WiFi控制，新一级能效，适合卧室和小客厅</field>
+            <field name="brand_id" ref="ai_product_demo.brand_midea"/>
+            <field name="weight">12.5</field>
+            <field name="x_scenario_tags">卧室制冷热,客厅制冷热,节能省电,智能家居</field>
+            <field name="x_selling_point">智能变频+新一级能效</field>
+            <field name="x_target_people">家庭用户,卧室使用,节能需求用户</field>
+            <field name="sale_ok">1</field>
+            <field name="active">1</field>
+        </record>
+
+        <record id="demo_appliance_002" model="product.template">
+            <field name="name">美的电饭煲MB-HS407</field>
+            <field name="default_code">DEMO-APPLIANCE-002</field>
+            <field name="categ_id" ref="ai_product_demo.demo_appliance"/>
+            <field name="list_price">599.00</field>
+            <field name="standard_price">420.00</field>
+            <field name="initial_purchase_cost">420.00</field>
+            <field name="hs_code">123456</field>
+            <field name="description_sale">美的电饭煲，4L容量，IH电磁加热，智能预约，微压焖香功能</field>
+            <field name="brand_id" ref="ai_product_demo.brand_midea"/>
+            <field name="weight">5.2</field>
+            <field name="x_scenario_tags">煮饭,智能预约,IH加热,家庭</field>
+            <field name="x_selling_point">IH电磁加热+微压焖香</field>
+            <field name="x_target_people">家庭用户,米饭爱好者,智能厨房需求</field>
+            <field name="sale_ok">1</field>
+            <field name="active">1</field>
+        </record>
+
+        <record id="demo_appliance_003" model="product.template">
+            <field name="name">美的扫地机器人S8+</field>
+            <field name="default_code">DEMO-APPLIANCE-003</field>
+            <field name="categ_id" ref="ai_product_demo.demo_appliance"/>
+            <field name="list_price">2599.00</field>
+            <field name="standard_price">1850.00</field>
+            <field name="initial_purchase_cost">1850.00</field>
+            <field name="hs_code">123456</field>
+            <field name="description_sale">美的扫地机器人S8+，自动集尘，激光导航，5000Pa大吸力，智能避障</field>
+            <field name="brand_id" ref="ai_product_demo.brand_midea"/>
+            <field name="weight">3.8</field>
+            <field name="x_scenario_tags">扫地,自动集尘,智能避障,解放双手</field>
+            <field name="x_selling_point">自动集尘+激光导航旗舰</field>
+            <field name="x_target_people">懒人,上班族,宠物家庭</field>
+            <field name="sale_ok">1</field>
+            <field name="active">1</field>
+        </record>
+
+        <record id="demo_appliance_004" model="product.template">
+            <field name="name">美的洗碗机RX600Pro</field>
+            <field name="default_code">DEMO-APPLIANCE-004</field>
+            <field name="categ_id" ref="ai_product_demo.demo_appliance"/>
+            <field name="list_price">4299.00</field>
+            <field name="standard_price">3200.00</field>
+            <field name="initial_purchase_cost">3200.00</field>
+            <field name="hs_code">123456</field>
+            <field name="description_sale">美的洗碗机RX600Pro，14套大容量，3层喷臂，热风烘干，智能油污检测</field>
+            <field name="brand_id" ref="ai_product_demo.brand_midea"/>
+            <field name="weight">45</field>
+            <field name="x_scenario_tags">洗碗,大容量,热风烘干,解放双手</field>
+            <field name="x_selling_point">14套大容量+热风烘干</field>
+            <field name="x_target_people">家庭用户,懒人,追求品质生活</field>
+            <field name="sale_ok">1</field>
+            <field name="active">1</field>
+        </record>
+
+        <!-- 格力家电 -->
+        <record id="demo_appliance_005" model="product.template">
+            <field name="name">格力空调KFR-50LW</field>
+            <field name="default_code">DEMO-APPLIANCE-005</field>
+            <field name="categ_id" ref="ai_product_demo.demo_appliance"/>
+            <field name="list_price">4699.00</field>
+            <field name="standard_price">3500.00</field>
+            <field name="initial_purchase_cost">3500.00</field>
+            <field name="hs_code">123456</field>
+            <field name="description_sale">格力空调，2匹，冷暖变频，智能WiFi，衡温立体送风，适合客厅</field>
+            <field name="brand_id" ref="ai_product_demo.brand_gree"/>
+            <field name="weight">35</field>
+            <field name="x_scenario_tags">客厅制冷热,智能,节能,大空间</field>
+            <field name="x_selling_point">2匹变频+衡温立体送风</field>
+            <field name="x_target_people">客厅用户,大空间制冷热,格力粉丝</field>
+            <field name="sale_ok">1</field>
+            <field name="active">1</field>
+        </record>
+
+        <record id="demo_appliance_006" model="product.template">
+            <field name="name">格力空气能热水器</field>
+            <field name="default_code">DEMO-APPLIANCE-006</field>
+            <field name="categ_id" ref="ai_product_demo.demo_appliance"/>
+            <field name="list_price">5899.00</field>
+            <field name="standard_price">4400.00</field>
+            <field name="initial_purchase_cost">4400.00</field>
+            <field name="hs_code">123456</field>
+            <field name="description_sale">格力空气能热水器，200L容量，一级能效，智能预约，冷媒换热技术</field>
+            <field name="brand_id" ref="ai_product_demo.brand_gree"/>
+            <field name="weight">85</field>
+            <field name="x_scenario_tags">热水,节能,一级能效,家庭</field>
+            <field name="x_selling_point">空气能+一级能效节能冠军</field>
+            <field name="x_target_people">家庭用户,节能需求,热水器升级</field>
+            <field name="sale_ok">1</field>
+            <field name="active">1</field>
+        </record>
+
+        <record id="demo_appliance_007" model="product.template">
+            <field name="name">格力踢脚线取暖器</field>
+            <field name="default_code">DEMO-APPLIANCE-007</field>
+            <field name="categ_id" ref="ai_product_demo.demo_appliance"/>
+            <field name="list_price">699.00</field>
+            <field name="standard_price">490.00</field>
+            <field name="initial_purchase_cost">490.00</field>
+            <field name="hs_code">123456</field>
+            <field name="description_sale">格力踢脚线取暖器，2200W大功率，智能恒温，IPX4防水，无光低噪</field>
+            <field name="brand_id" ref="ai_product_demo.brand_gree"/>
+            <field name="weight">5.8</field>
+            <field name="x_scenario_tags">取暖,浴室,卧室,静音</field>
+            <field name="x_selling_point">2200W大功率+静音踢脚线</field>
+            <field name="x_target_people">南方用户,浴室取暖,静音需求</field>
+            <field name="sale_ok">1</field>
+            <field name="active">1</field>
+        </record>
+
+        <!-- 飞利浦家电 -->
+        <record id="demo_appliance_008" model="product.template">
+            <field name="name">飞利浦空气炸锅HD9252</field>
+            <field name="default_code">DEMO-APPLIANCE-008</field>
+            <field name="categ_id" ref="ai_product_demo.demo_appliance"/>
+            <field name="list_price">799.00</field>
+            <field name="standard_price">560.00</field>
+            <field name="initial_purchase_cost">560.00</field>
+            <field name="hs_code">123456</field>
+            <field name="description_sale">飞利浦空气炸锅，4.1L容量，TurboStar技术，智能触屏，7倍速热空气循环</field>
+            <field name="brand_id" ref="ai_product_demo.brand_philips"/>
+            <field name="weight">5.5</field>
+            <field name="x_scenario_tags">空气炸,减脂,健康,快手菜</field>
+            <field name="x_selling_point">TurboStar技术+7倍速热循环</field>
+            <field name="x_target_people">健康饮食,减脂人群,年轻家庭</field>
+            <field name="sale_ok">1</field>
+            <field name="active">1</field>
+        </record>
+
+        <record id="demo_appliance_009" model="product.template">
+            <field name="name">飞利浦电动牙刷HX9924</field>
+            <field name="default_code">DEMO-APPLIANCE-009</field>
+            <field name="categ_id" ref="ai_product_demo.demo_appliance"/>
+            <field name="list_price">1099.00</field>
+            <field name="standard_price">770.00</field>
+            <field name="initial_purchase_cost">770.00</field>
+            <field name="hs_code">123456</field>
+            <field name="description_sale">飞利浦电动牙刷，钻石亮白系列，智能磁悬浮马达，4种模式，APP蓝牙连接</field>
+            <field name="brand_id" ref="ai_product_demo.brand_philips"/>
+            <field name="weight">0.3</field>
+            <field name="x_scenario_tags">口腔护理,智能,APP连接,美白</field>
+            <field name="x_selling_point">智能磁悬浮+APP蓝牙连接</field>
+            <field name="x_target_people">口腔护理,追求品质生活,科技爱好者</field>
+            <field name="sale_ok">1</field>
+            <field name="active">1</field>
+        </record>
+
+        <record id="demo_appliance_010" model="product.template">
+            <field name="name">飞利浦咖啡机EP5444</field>
+            <field name="default_code">DEMO-APPLIANCE-010</field>
+            <field name="categ_id" ref="ai_product_demo.demo_appliance"/>
+            <field name="list_price">6999.00</field>
+            <field name="standard_price">5200.00</field>
+            <field name="initial_purchase_cost">5200.00</field>
+            <field name="hs_code">123456</field>
+            <field name="description_sale">飞利浦咖啡机，全自动意式，陶瓷圆盘研磨器，4款经典咖啡，LatteGo奶泡系统</field>
+            <field name="brand_id" ref="ai_product_demo.brand_philips"/>
+            <field name="weight">8</field>
+            <field name="x_scenario_tags">咖啡,意式,全自动,品质生活</field>
+            <field name="x_selling_point">陶瓷研磨+LatteGo奶泡系统</field>
+            <field name="x_target_people">咖啡爱好者,品质生活,上班族</field>
+            <field name="sale_ok">1</field>
+            <field name="active">1</field>
+        </record>
+
+        <!-- 戴森家电 -->
+        <record id="demo_appliance_011" model="product.template">
+            <field name="name">戴森吹风机HD15</field>
+            <field name="default_code">DEMO-APPLIANCE-011</field>
+            <field name="categ_id" ref="ai_product_demo.demo_appliance"/>
+            <field name="list_price">2999.00</field>
+            <field name="standard_price">2200.00</field>
+            <field name="initial_purchase_cost">2200.00</field>
+            <field name="hs_code">123456</field>
+            <field name="description_sale">戴森吹风机HD15，数字电机V9，气流倍增技术，智能温控，4种风嘴</field>
+            <field name="brand_id" ref="ai_product_demo.brand_dyson"/>
+            <field name="weight">0.56</field>
+            <field name="x_scenario_tags">护发,吹风,快速干发,送礼</field>
+            <field name="x_selling_point">气流倍增+智能温控护发</field>
+            <field name="x_target_people">追求品质,护发需求,送礼佳品</field>
+            <field name="sale_ok">1</field>
+            <field name="active">1</field>
+        </record>
+
+        <record id="demo_appliance_012" model="product.template">
+            <field name="name">戴森吸尘器V15 Detect</field>
+            <field name="default_code">DEMO-APPLIANCE-012</field>
+            <field name="categ_id" ref="ai_product_demo.demo_appliance"/>
+            <field name="list_price">5499.00</field>
+            <field name="standard_price">4100.00</field>
+            <field name="initial_purchase_cost">4100.00</field>
+            <field name="hs_code">123456</field>
+            <field name="description_sale">戴森V15 Detect，激光探测技术，LCD显示屏，230AW强劲吸力，60分钟续航</field>
+            <field name="brand_id" ref="ai_product_demo.brand_dyson"/>
+            <field name="weight">3.1</field>
+            <field name="x_scenario_tags">清洁,除螨,宠物毛发,深度清洁</field>
+            <field name="x_selling_point">激光探测+230AW旗舰吸力</field>
+            <field name="x_target_people">深度清洁,宠物家庭,戴森粉丝</field>
+            <field name="sale_ok">1</field>
+            <field name="active">1</field>
+        </record>
+
+        <record id="demo_appliance_013" model="product.template">
+            <field name="name">戴森空气净化风扇BP04</field>
+            <field name="default_code">DEMO-APPLIANCE-013</field>
+            <field name="categ_id" ref="ai_product_demo.demo_appliance"/>
+            <field name="list_price">6299.00</field>
+            <field name="standard_price">4700.00</field>
+            <field name="initial_purchase_cost">4700.00</field>
+            <field name="hs_code">123456</field>
+            <field name="description_sale">戴森BP04空气净化风扇，分解甲醛，360°净化，52dB低噪音，智能连接</field>
+            <field name="brand_id" ref="ai_product_demo.brand_dyson"/>
+            <field name="weight">5</field>
+            <field name="x_scenario_tags">净化空气,除甲醛,静音,智能</field>
+            <field name="x_selling_point">分解甲醛+52dB超低噪音</field>
+            <field name="x_target_people">新房装修,敏感人群,品质生活</field>
+            <field name="sale_ok">1</field>
+            <field name="active">1</field>
+        </record>
+
+        <!-- 德尔玛家电 -->
+        <record id="demo_appliance_014" model="product.template">
+            <field name="name">德尔玛蒸汽拖把T30</field>
+            <field name="default_code">DEMO-APPLIANCE-014</field>
+            <field name="categ_id" ref="ai_product_demo.demo_appliance"/>
+            <field name="list_price">399.00</field>
+            <field name="standard_price">280.00</field>
+            <field name="initial_purchase_cost">280.00</field>
+            <field name="hs_code">123456</field>
+            <field name="description_sale">德尔玛蒸汽拖把T30，高温蒸汽杀菌，150℃大蒸汽，拖布自清洁</field>
+            <field name="brand_id" ref="ai_product_demo.brand_deerma"/>
+            <field name="weight">2.5</field>
+            <field name="x_scenario_tags">拖地,杀菌,高温消毒,地板清洁</field>
+            <field name="x_selling_point">150℃高温蒸汽+杀菌消毒</field>
+            <field name="x_target_people">有小孩家庭,杀菌需求,地板清洁</field>
+            <field name="sale_ok">1</field>
+            <field name="active">1</field>
+        </record>
+
+        <record id="demo_appliance_015" model="product.template">
+            <field name="name">德尔玛多功能料理锅</field>
+            <field name="default_code">DEMO-APPLIANCE-015</field>
+            <field name="categ_id" ref="ai_product_demo.demo_appliance"/>
+            <field name="list_price">299.00</field>
+            <field name="standard_price">210.00</field>
+            <field name="initial_purchase_cost">210.00</field>
+            <field name="hs_code">123456</field>
+            <field name="description_sale">德尔玛多功能料理锅，5L大容量，不粘涂层，可拆卸锅体，煎炒煮蒸一锅搞定</field>
+            <field name="brand_id" ref="ai_product_demo.brand_deerma"/>
+            <field name="weight">3.2</field>
+            <field name="x_scenario_tags">烹饪,多功能,简易,宿舍</field>
+            <field name="x_selling_point">煎炒煮蒸一锅搞定</field>
+            <field name="x_target_people">学生党,租房族,厨房新手</field>
+            <field name="sale_ok">1</field>
+            <field name="active">1</field>
+        </record>
+
+        <record id="demo_appliance_016" model="product.template">
+            <field name="name">小米米家空气净化器4 Pro</field>
+            <field name="default_code">DEMO-APPLIANCE-016</field>
+            <field name="categ_id" ref="ai_product_demo.demo_appliance"/>
+            <field name="list_price">1299.00</field>
+            <field name="standard_price">910.00</field>
+            <field name="initial_purchase_cost">910.00</field>
+            <field name="hs_code">123456</field>
+            <field name="description_sale">小米空气净化器4 Pro，500m³/h净化量，OLED屏幕，智能联动，米家生态</field>
+            <field name="brand_id" ref="ai_product_demo.brand_xiaomi"/>
+            <field name="weight">6.8</field>
+            <field name="x_scenario_tags">空气净化,除甲醛,小米生态,智能</field>
+            <field name="x_selling_point">500m³/h净化+米家智能联动</field>
+            <field name="x_target_people">小米用户,新房装修,过敏人群</field>
+            <field name="sale_ok">1</field>
+            <field name="active">1</field>
+        </record>
+
+        <record id="demo_appliance_017" model="product.template">
+            <field name="name">小米米家破壁料理机</field>
+            <field name="default_code">DEMO-APPLIANCE-017</field>
+            <field name="categ_id" ref="ai_product_demo.demo_appliance"/>
+            <field name="list_price">699.00</field>
+            <field name="standard_price">490.00</field>
+            <field name="initial_purchase_cost">490.00</field>
+            <field name="hs_code">123456</field>
+            <field name="description_sale">小米破壁料理机，800W大功率，冷热双打，10种功能，24小时预约</field>
+            <field name="brand_id" ref="ai_product_demo.brand_xiaomi"/>
+            <field name="weight">5.2</field>
+            <field name="x_scenario_tags">破壁,豆浆,果汁,健康饮食</field>
+            <field name="x_selling_point">800W大功率+冷热双打</field>
+            <field name="x_target_people">健康饮食,辅食制作,家庭用户</field>
+            <field name="sale_ok">1</field>
+            <field name="active">1</field>
+        </record>
+
+        <record id="demo_appliance_018" model="product.template">
+            <field name="name">美的微波炉M1-L213B</field>
+            <field name="default_code">DEMO-APPLIANCE-018</field>
+            <field name="categ_id" ref="ai_product_demo.demo_appliance"/>
+            <field name="list_price">399.00</field>
+            <field name="standard_price">280.00</field>
+            <field name="initial_purchase_cost">280.00</field>
+            <field name="hs_code">123456</field>
+            <field name="description_sale">美的微波炉，21L容量，旋钮操作，700W功率，简单实用</field>
+            <field name="brand_id" ref="ai_product_demo.brand_midea"/>
+            <field name="weight">10.5</field>
+            <field name="x_scenario_tags">加热,简单,实用,厨房</field>
+            <field name="x_selling_point">简单实用+21L容量</field>
+            <field name="x_target_people">老年人,简单需求,租房族</field>
+            <field name="sale_ok">1</field>
+            <field name="active">1</field>
+        </record>
+
+        <record id="demo_appliance_019" model="product.template">
+            <field name="name">格力电风扇FW45-1641</field>
+            <field name="default_code">DEMO-APPLIANCE-019</field>
+            <field name="categ_id" ref="ai_product_demo.demo_appliance"/>
+            <field name="list_price">299.00</field>
+            <field name="standard_price">210.00</field>
+            <field name="initial_purchase_cost">210.00</field>
+            <field name="hs_code">123456</field>
+            <field name="description_sale">格力电风扇，14叶柔风扇，遥控操作，8小时定时，轻柔低噪</field>
+            <field name="brand_id" ref="ai_product_demo.brand_gree"/>
+            <field name="weight">4.2</field>
+            <field name="x_scenario_tags">风扇,静音,遥控,夏日</field>
+            <field name="x_selling_point">14叶柔风+超低噪音</field>
+            <field name="x_target_people">老人房,婴儿房,静音需求</field>
+            <field name="sale_ok">1</field>
+            <field name="active">1</field>
+        </record>
+
+        <record id="demo_appliance_020" model="product.template">
+            <field name="name">飞利浦挂烫机GC502</field>
+            <field name="default_code">DEMO-APPLIANCE-020</field>
+            <field name="categ_id" ref="ai_product_demo.demo_appliance"/>
+            <field name="list_price">399.00</field>
+            <field name="standard_price">280.00</field>
+            <field name="initial_purchase_cost">280.00</field>
+            <field name="hs_code">123456</field>
+            <field name="description_sale">飞利浦挂烫机，2000W大功率，持续蒸汽，去皱杀菌，手持便携</field>
+            <field name="brand_id" ref="ai_product_demo.brand_philips"/>
+            <field name="weight">1.2</field>
+            <field name="x_scenario_tags">熨烫,除皱,杀菌,便携</field>
+            <field name="x_selling_point">2000W大功率+手持便携</field>
+            <field name="x_target_people">商务人士,租房族,经常出差</field>
+            <field name="sale_ok">1</field>
+            <field name="active">1</field>
+        </record>
+
+    </data>
+</odoo>

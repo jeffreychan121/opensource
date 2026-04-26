@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_ai_search_mvp_config,AI Search MVP Config User,model_ai_search_mvp_config,base.group_user,1,1,1,1
+access_ai_search_mvp_session,AI Search MVP Session User,model_ai_search_mvp_session,base.group_user,1,1,1,1
+access_ai_search_mvp_log,AI Search MVP Log User,model_ai_search_mvp_log,base.group_user,1,1,1,1

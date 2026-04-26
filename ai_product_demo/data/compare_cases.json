@@ -1,0 +1,469 @@
+[
+  {
+    "id": "compare_001",
+    "products_to_compare": ["DEMO-PHONE-001", "DEMO-PHONE-010"],
+    "compare_dimensions": ["价格", "拍照", "性能", "续航", "系统生态"],
+    "expected_structured_summary": {
+      "价格": "小米14 Pro 4999元 vs iPhone 15 Pro Max 9999元",
+      "拍照": "小米徕卡5000万主摄 vs 苹果4800万原摄",
+      "性能": "均为旗舰处理器（骁龙8 Gen3 vs A17 Pro）",
+      "续航": "小米4880mAh vs 苹果更大电池容量",
+      "系统生态": "小米MIUI/HyperOS vs 苹果iOS"
+    },
+    "better_for_people": {
+      "小米14 Pro": ["预算有限", "追求性价比", "喜欢安卓开放性", "徕卡拍照风格"],
+      "iPhone 15 Pro Max": ["果粉", "追求稳定生态", "重视保值率", "重视隐私安全"]
+    },
+    "better_for_scenes": {
+      "小米14 Pro": ["游戏", "高性价比用户", "追求拍照多样性"],
+      "iPhone 15 Pro Max": ["商务", "日常使用", "追求稳定性"]
+    }
+  },
+  {
+    "id": "compare_002",
+    "products_to_compare": ["DEMO-PHONE-004", "DEMO-PHONE-005"],
+    "compare_dimensions": ["价格", "性能", "拍照", "续航"],
+    "expected_structured_summary": {
+      "价格": "Redmi K70 Pro 3299元 vs Redmi Note 13 Pro+ 1999元",
+      "性能": "K70 Pro采用骁龙8 Gen3，Note 13 Pro+采用天玑7200",
+      "拍照": "Note 13 Pro+有2亿像素主摄，K70 Pro有5000万主摄",
+      "续航": "两者都配备大容量电池和快充"
+    },
+    "better_for_people": {
+      "Redmi K70 Pro": ["游戏玩家", "追求高性能", "预算3000左右"],
+      "Redmi Note 13 Pro+": ["拍照爱好者", "预算有限", "追求性价比"]
+    },
+    "better_for_scenes": {
+      "Redmi K70 Pro": ["游戏", "高性能需求"],
+      "Redmi Note 13 Pro+": ["日常使用", "拍照", "性价比用户"]
+    }
+  },
+  {
+    "id": "compare_003",
+    "products_to_compare": ["DEMO-PHONE-006", "DEMO-PHONE-007"],
+    "compare_dimensions": ["价格", "拍照", "性能", "特色功能"],
+    "expected_structured_summary": {
+      "价格": "Mate 60 Pro+ 8999元 vs Pura 70 Ultra 9999元",
+      "拍照": "Mate 60 Pro+采用XMAGE影像，Pura 70 Ultra有可伸缩主摄",
+      "性能": "均采用麒麟芯片，Pura 70 Ultra升级到麒麟9010",
+      "特色功能": "Mate 60 Pro+支持卫星通话，Pura 70 Ultra主打影像"
+    },
+    "better_for_people": {
+      "Mate 60 Pro+": ["商务人士", "需要卫星通话", "支持国产"],
+      "Pura 70 Ultra": ["摄影爱好者", "追求极致拍照", "不介意价格"]
+    },
+    "better_for_scenes": {
+      "Mate 60 Pro+": ["商务", "户外", "国产旗舰"],
+      "Pura 70 Ultra": ["拍照", "摄影", "追求极致影像"]
+    }
+  },
+  {
+    "id": "compare_004",
+    "products_to_compare": ["DEMO-PHONE-010", "DEMO-PHONE-011"],
+    "compare_dimensions": ["价格", "屏幕", "重量", "续航", "拍照"],
+    "expected_structured_summary": {
+      "价格": "iPhone 15 Pro Max 9999元 vs iPhone 15 Pro 7999元（差价2000元）",
+      "屏幕": "Pro Max为6.7英寸，Pro为6.1英寸",
+      "重量": "Pro Max更重（221g vs 187g）",
+      "续航": "Pro Max电池容量更大，续航更长",
+      "拍照": "Pro Max支持5倍光学变焦，Pro支持3倍"
+    },
+    "better_for_people": {
+      "iPhone 15 Pro Max": ["商务人士", "追求大屏", "重视续航", "不惜预算"],
+      "iPhone 15 Pro": ["追求手感", "喜欢单手操作", "预算有限但想要Pro体验"
+      ]
+    },
+    "better_for_scenes": {
+      "iPhone 15 Pro Max": ["商务", "娱乐", "长时间使用"],
+      "iPhone 15 Pro": ["日常使用", "便携", "游戏"
+      ]
+    }
+  },
+  {
+    "id": "compare_005",
+    "products_to_compare": ["DEMO-EAR-001", "DEMO-EAR-002"],
+    "compare_dimensions": ["价格", "降噪深度", "音质", "佩戴舒适度", "续航"],
+    "expected_structured_summary": {
+      "价格": "索尼WF-1000XM5 1999元 vs BOSE QC Ultra 2299元",
+      "降噪深度": "两者均为顶级降噪，索尼低频降噪更强，BOSE高频更好",
+      "音质": "索尼偏流行，解析力强；BOSE偏均衡，声场大",
+      "佩戴舒适度": "索尼体积更小，佩戴更舒适；BOSE更稳固",
+      "续航": "索尼8+24小时，BOSE7+24小时"
+    },
+    "better_for_people": {
+      "索尼WF-1000XM5": ["音乐爱好者", "追求解析力", "喜欢流行音乐", "注重佩戴舒适"],
+      "BOSE QC Ultra": ["通勤族", "追求降噪效果", "喜欢均衡音质", "运动时佩戴"
+      ]
+    },
+    "better_for_scenes": {
+      "索尼WF-1000XM5": ["音乐欣赏", "日常通勤", "长时间佩戴"],
+      "BOSE QC Ultra": ["通勤", "飞机出行", "运动"
+      ]
+    }
+  },
+  {
+    "id": "compare_006",
+    "products_to_compare": ["DEMO-EAR-004", "DEMO-EAR-013"],
+    "compare_dimensions": ["价格", "生态融合", "降噪", "音质", "续航"],
+    "expected_structured_summary": {
+      "价格": "AirPods Pro 2 1899元 vs AirPods Max 4399元",
+      "生态融合": "两者都完美支持苹果生态，无缝切换",
+      "降噪": "AirPods Max头戴式降噪效果更好",
+      "音质": "AirPods Max音质更佳，声场更开阔",
+      "续航": "AirPods Max续航更长（20+小时）"
+    },
+    "better_for_people": {
+      "AirPods Pro 2": ["通勤族", "追求便携", "预算有限", "喜欢入耳式"],
+      "AirPods Max": ["追求音质", "在家或办公室使用", "不介意头戴式"]
+    },
+    "better_for_scenes": {
+      "AirPods Pro 2": ["通勤", "外出携带", "运动"],
+      "AirPods Max": ["室内使用", "音乐欣赏", "长途旅行"
+      ]
+    }
+  },
+  {
+    "id": "compare_007",
+    "products_to_compare": ["DEMO-EAR-005", "DEMO-EAR-006"],
+    "compare_dimensions": ["价格", "防水等级", "佩戴稳固性", "续航", "音质"],
+    "expected_structured_summary": {
+      "价格": "AirPods Pro 2 1899元 vs Powerbeats Pro 1499元",
+      "防水等级": "两者都防水，AirPods Pro 2为IPX4，Powerbeats Pro为IPX5",
+      "佩戴稳固性": "Powerbeats Pro耳挂式更稳固，适合剧烈运动",
+      "续航": "Powerbeats Pro单次9小时更持久",
+      "音质": "Powerbeats Pro低频更强，AirPods Pro 2更均衡"
+    },
+    "better_for_people": {
+      "AirPods Pro 2": ["苹果用户", "追求降噪", "日常运动"],
+      "Powerbeats Pro": ["运动发烧友", "需要稳固佩戴", "喜欢强劲低音"]
+    },
+    "better_for_scenes": {
+      "AirPods Pro 2": ["日常运动", "通勤", "健身房"],
+      "Powerbeats Pro": ["跑步", "高强度运动", "力量训练"
+      ]
+    }
+  },
+  {
+    "id": "compare_008",
+    "products_to_compare": ["DEMO-LAPTOP-001", "DEMO-LAPTOP-002"],
+    "compare_dimensions": ["价格", "性能", "便携性", "续航", "屏幕"],
+    "expected_structured_summary": {
+      "价格": "ThinkPad X1 Carbon 8999元 vs ThinkBook 14+ 5499元",
+      "性能": "X1 Carbon为商务轻薄定位，ThinkBook 14+性能释放更强",
+      "便携性": "X1 Carbon更轻薄（1.12kg vs 1.4kg）",
+      "续航": "X1 Carbon续航更长",
+      "屏幕": "ThinkBook 14+可选高刷新率屏幕"
+    },
+    "better_for_people": {
+      "ThinkPad X1 Carbon": ["商务精英", "经常出差", "追求轻薄", "品牌忠诚度高"],
+      "ThinkBook 14+": ["追求性价比", "需要性能", "偶尔游戏"]
+    },
+    "better_for_scenes": {
+      "ThinkPad X1 Carbon": ["商务出行", "会议", "移动办公"],
+      "ThinkBook 14+": ["办公", "轻度设计", "学生使用"
+      ]
+    }
+  },
+  {
+    "id": "compare_009",
+    "products_to_compare": ["DEMO-LAPTOP-004", "DEMO-LAPTOP-005"],
+    "compare_dimensions": ["价格", "显卡性能", "散热", "屏幕", "续航"],
+    "expected_structured_summary": {
+      "价格": "ROG枪神8 12999元 vs 拯救者Y9000P 10999元",
+      "显卡性能": "两者都配备RTX 4060，枪神8可选更高配置",
+      "散热": "枪神8采用液金导热，散热更好但噪音较大",
+      "屏幕": "枪神8可选Mini LED，拯救者性价比更高",
+      "续航": "拯救者续航稍好，但游戏本普遍续航一般"
+    },
+    "better_for_people": {
+      "ROG枪神8": ["追求极致性能", "不介意价格", "专业玩家"],
+      "拯救者Y9000P": ["追求性价比", "主流游戏需求", "学生党"]
+    },
+    "better_for_scenes": {
+      "ROG枪神8": ["3A大作", "专业电竞", "长时间游戏"],
+      "拯救者Y9000P": ["主流游戏", "学习工作两用", "性价比用户"
+      ]
+    }
+  },
+  {
+    "id": "compare_010",
+    "products_to_compare": ["DEMO-LAPTOP-012", "DEMO-LAPTOP-013"],
+    "compare_dimensions": ["价格", "性能", "便携性", "屏幕", "生态"],
+    "expected_structured_summary": {
+      "价格": "MacBook Air M3 8999元 vs MacBook Pro 14 12999元",
+      "性能": "Pro配备M3 Pro芯片，性能更强；Air为M3基础版",
+      "便携性": "Air更轻薄（1.24kg vs 1.55kg）",
+      "屏幕": "Pro配备XDR显示屏，亮度更高，支持ProMotion",
+      "生态": "两者都支持苹果生态无缝衔接"
+    },
+    "better_for_people": {
+      "MacBook Air M3": ["日常办公", "学生", "追求轻薄", "预算有限"],
+      "MacBook Pro 14": ["专业创作者", "视频剪辑", "开发者", "不介意预算"]
+    },
+    "better_for_scenes": {
+      "MacBook Air M3": ["移动办公", "日常使用", "出差"],
+      "MacBook Pro 14": ["专业创作", "视频编辑", "音乐制作"
+      ]
+    }
+  },
+  {
+    "id": "compare_011",
+    "products_to_compare": ["DEMO-AC-001", "DEMO-AC-002"],
+    "compare_dimensions": ["价格", "能效", "制冷速度", "静音效果", "智能功能"],
+    "expected_structured_summary": {
+      "价格": "格力云锦 3299元 vs 美的风观 2799元",
+      "能效": "两者都达到一级能效，格力略优",
+      "制冷速度": "格力采用冷酷外机，制冷更快",
+      "静音效果": "美的静音模式更低",
+      "智能功能": "都支持APP控制，格力语音控制更丰富"
+    },
+    "better_for_people": {
+      "格力云锦": ["注重品质", "追求制冷效果", "愿意多花钱"],
+      "美的风观": ["追求性价比", "预算有限", "注重静音"]
+    },
+    "better_for_scenes": {
+      "格力云锦": ["大房间", "炎热爱用户", "高温地区"],
+      "美的风观": ["小户型", "卧室", "静音需求"
+      ]
+    }
+  },
+  {
+    "id": "compare_012",
+    "products_to_compare": ["DEMO-HD-001", "DEMO-HD-002"],
+    "compare_dimensions": ["价格", "护发效果", "风力", "噪音", "设计"],
+    "expected_structured_summary": {
+      "价格": "戴森HD15 2699元 vs 追觅P10 699元",
+      "护发效果": "戴森采用智能温控，护发效果更好；追觅也有负离子功能",
+      "风力": "戴森风力强劲，干发速度快",
+      "噪音": "戴森噪音控制更好",
+      "设计": "戴森标志性中空设计，追觅模仿但不同"
+    },
+    "better_for_people": {
+      "戴森HD15": ["追求品质生活", "送礼", "不介意价格"],
+      "追觅P10": ["追求性价比", "学生党", "租房族"]
+    },
+    "better_for_scenes": {
+      "戴森HD15": ["送礼", "品质生活", "专业造型"],
+      "追觅P10": ["日常使用", "宿舍", "性价比用户"
+      ]
+    }
+  },
+  {
+    "id": "compare_013",
+    "products_to_compare": ["DEMO-PHONE-002", "DEMO-PHONE-007"],
+    "compare_dimensions": ["价格", "拍照硬件", "影像风格", "性能", "特色"],
+    "expected_structured_summary": {
+      "价格": "小米14 Ultra 6999元 vs 华为Pura 70 Ultra 9999元",
+      "拍照硬件": "小米1英寸主摄+双长焦，华为可伸缩主摄+可变光圈",
+      "影像风格": "小米徕卡调色，华为XMAGE原色",
+      "性能": "小米骁龙8 Gen3，华为麒麟9010",
+      "特色": "小米徕卡德味，华为国产麒麟"
+    },
+    "better_for_people": {
+      "小米14 Ultra": ["摄影爱好者", "追求徕卡风格", "预算有限"],
+      "华为Pura 70 Ultra": ["专业摄影", "支持国产", "追求黑科技"]
+    },
+    "better_for_scenes": {
+      "小米14 Ultra": ["旅行拍照", "人文摄影", "性价比旗舰"],
+      "华为Pura 70 Ultra": ["专业摄影", "夜景拍摄", "国产旗舰"
+      ]
+    }
+  },
+  {
+    "id": "compare_014",
+    "products_to_compare": ["DEMO-EAR-008", "DEMO-EAR-009"],
+    "compare_dimensions": ["价格", "音质", "佩戴方式", "降噪", "便携性"],
+    "expected_structured_summary": {
+      "价格": "森海塞尔IE200 899元 vs 拜亚动力DT240 999元",
+      "音质": "IE200解析力强，适合古典；DT240三频均衡，适合流行",
+      "佩戴方式": "IE200入耳式，DT240头戴式",
+      "降噪": "两者都无主动降噪，靠物理隔音",
+      "便携性": "IE200体积小，便携；DT240需要收纳包"
+    },
+    "better_for_people": {
+      "森海塞尔IE200": ["发烧友", "喜欢古典音乐", "需要便携"],
+      "拜亚动力DT240": ["录音监听", "喜欢监听风格", "室内使用"]
+    },
+    "better_for_scenes": {
+      "森海塞尔IE200": ["随身HiFi", "出街", "古典乐"],
+      "拜亚动力DT240": ["录音棚", "室内欣赏", "监听使用"
+      ]
+    }
+  },
+  {
+    "id": "compare_015",
+    "products_to_compare": ["DEMO-LAPTOP-007", "DEMO-LAPTOP-015"],
+    "compare_dimensions": ["价格", "屏幕素质", "性能", "便携性", "续航"],
+    "expected_structured_summary": {
+      "价格": "MacBook Pro 16 19999元 vs ThinkPad X1隐士 16999元",
+      "屏幕素质": "MacBook Pro采用Mini LED，XDR显示；ThinkPad为4K IPS",
+      "性能": "MacBook Pro M3 Max性能更强，续航更久",
+      "便携性": "MacBook Pro 16较重（2.14kg），ThinkPad X1隐士约1.8kg",
+      "续航": "MacBook Pro可达20小时，ThinkPad约10小时"
+    },
+    "better_for_people": {
+      "MacBook Pro 16": ["专业视频剪辑", "苹果用户", "追求极致屏幕"],
+      "ThinkPad X1隐士": ["Windows用户", "商务人士", "需要高性能"
+      ]
+    },
+    "better_for_scenes": {
+      "MacBook Pro 16": ["专业创作", "视频制作", "音乐制作"],
+      "ThinkPad X1隐士": ["商务设计", "移动办公", "Windows生态"
+      ]
+    }
+  },
+  {
+    "id": "compare_016",
+    "products_to_compare": ["DEMO-PHONE-009", "DEMO-PHONE-015"],
+    "compare_dimensions": ["价格", "折叠技术", "屏幕体验", "便携性", "生态"],
+    "expected_structured_summary": {
+      "价格": "华为Mate X5 12999元 vs 三星Fold5 12999元",
+      "折叠技术": "华为外折叠设计，三星内折叠设计",
+      "屏幕体验": "华为屏幕更大（三折叠？），三星展开后7.6英寸",
+      "便携性": "华为外折叠更薄，三星折叠后较厚",
+      "生态": "华为鸿蒙 vs 三星安卓生态"
+    },
+    "better_for_people": {
+      "华为Mate X5": ["商务人士", "支持国产", "喜欢创新设计"],
+      "三星Fold5": ["喜欢安卓定制", "需要S Pen", "国际品牌"
+      ]
+    },
+    "better_for_scenes": {
+      "华为Mate X5": ["商务展示", "移动办公", "国产旗舰"],
+      "三星Fold5": ["大屏阅读", "多任务处理", "国际用户"
+      ]
+    }
+  },
+  {
+    "id": "compare_017",
+    "products_to_compare": ["DEMO-ROBOT-001", "DEMO-ROBOT-002"],
+    "compare_dimensions": ["价格", "导航技术", "清洁能力", "智能程度", "噪音"],
+    "expected_structured_summary": {
+      "价格": "科沃斯X2 4999元 vs 石头G20 4499元",
+      "导航技术": "科沃斯采用半固态激光雷达，石头采用LDS激光",
+      "清洁能力": "两者扫拖一体，科沃斯吸力更大",
+      "智能程度": "都支持APP控制，科沃斯语音控制更丰富",
+      "噪音": "石头静音模式更好"
+    },
+    "better_for_people": {
+      "科沃斯X2": ["大户型", "追求吸力", "喜欢智能语音"],
+      "石头G20": ["小户型", "注重静音", "追求稳定性"
+      ]
+    },
+    "better_for_scenes": {
+      "科沃斯X2": ["大平层", "多房间清洁", "深度清洁"],
+      "石头G20": ["日常维护", "卧室清洁", "静音需求"
+      ]
+    }
+  },
+  {
+    "id": "compare_018",
+    "products_to_compare": ["DEMO-PHONE-008", "DEMO-PHONE-016"],
+    "compare_dimensions": ["价格", "自拍效果", "外观设计", "性能", "轻薄"],
+    "expected_structured_summary": {
+      "价格": "华为nova 12 Pro 3999元 vs OPPO Reno11 Pro 3499元",
+      "自拍效果": "nova 12 Pro前置6000万双摄，OPPO前置3200万单摄",
+      "外观设计": "nova 12 Pro采用药丸挖孔，Reno11 Pro曲面单孔",
+      "性能": "nova采用麒麟芯片，OPPO采用骁龙8+",
+      "轻薄": "两者都轻薄，Reno11 Pro略轻"
+    },
+    "better_for_people": {
+      "华为nova 12 Pro": ["自拍爱好者", "华为生态用户", "喜欢鸿蒙"],
+      "OPPO Reno11 Pro": ["追求性价比", "喜欢ColorOS", "时尚用户"
+      ]
+    },
+    "better_for_scenes": {
+      "华为nova 12 Pro": ["自拍", "Vlog拍摄", "日常使用"],
+      "OPPO Reno11 Pro": ["时尚拍照", "社交分享", "轻度游戏"
+      ]
+    }
+  },
+  {
+    "id": "compare_019",
+    "products_to_compare": ["DEMO-LAPTOP-010", "DEMO-LAPTOP-011"],
+    "compare_dimensions": ["价格", "性能", "屏幕", "便携性", "续航"],
+    "expected_structured_summary": {
+      "价格": "联想小新Pro14 5699元 vs 惠普星Book Pro14 5299元",
+      "性能": "两者都搭载13代酷睿标压处理器，性能相近",
+      "屏幕": "小新2.8K 120Hz，星Book 2.8K 90Hz",
+      "便携性": "两者都轻薄，重量相近",
+      "续航": "小新续航更好，约15小时；星Book约10小时"
+    },
+    "better_for_people": {
+      "联想小新Pro14": ["追求续航", "联想粉丝", "办公学习两用"],
+      "惠普星Book Pro14": ["追求性价比", "惠普粉丝", "学生用户"
+      ]
+    },
+    "better_for_scenes": {
+      "联想小新Pro14": ["移动办公", "长时间使用", "学习"],
+      "惠普星Book Pro14": ["学生使用", "日常办公", "轻度娱乐"
+      ]
+    }
+  },
+  {
+    "id": "compare_020",
+    "products_to_compare": ["DEMO-AP-001", "DEMO-AP-002"],
+    "compare_dimensions": ["价格", "净化能力", "适用面积", "智能功能", "耗材成本"],
+    "expected_structured_summary": {
+      "价格": "戴森HP09 5499元 vs 小米空气净化器4 Pro 1499元",
+      "净化能力": "戴森CADR值更高，净化速度更快",
+      "适用面积": "戴森适用更大面积，可达60㎡",
+      "智能功能": "戴森支持甲醛数显，小米支持APP控制",
+      "耗材成本": "小米滤芯便宜，戴森滤芯昂贵"
+    },
+    "better_for_people": {
+      "戴森HP09": ["追求品质", "大户型", "愿意投资健康"],
+      "小米空气净化器4 Pro": ["小户型", "追求性价比", "预算有限"
+      ]
+    },
+    "better_for_scenes": {
+      "戴森HP09": ["大客厅", "新装修房", "品质生活"],
+      "小米空气净化器4 Pro": ["卧室", "书房", "租房使用"
+      ]
+    }
+  },
+  {
+    "id": "compare_021",
+    "products_to_compare": ["DEMO-PHONE-003", "DEMO-PHONE-012"],
+    "compare_dimensions": ["价格", "性能", "拍照", "系统体验", "性价比"],
+    "expected_structured_summary": {
+      "价格": "小米13 3999元 vs iPhone 15 5999元",
+      "性能": "小米骁龙8 Gen2，iPhone A16仿生芯片",
+      "拍照": "小米徕卡影像，iPhone原汁原味",
+      "系统体验": "MIUI/HyperOS功能丰富，iOS流畅稳定",
+      "性价比": "小米更高，iPhone品牌溢价"
+    },
+    "better_for_people": {
+      "小米13": ["安卓用户", "追求性价比", "喜欢徕卡风格"],
+      "iPhone 15": ["苹果用户", "追求稳定", "重视隐私"
+      ]
+    },
+    "better_for_scenes": {
+      "小米13": ["游戏", "拍照", "性价比用户"],
+      "iPhone 15": ["日常使用", "商务", "苹果生态用户"
+      ]
+    }
+  },
+  {
+    "id": "compare_022",
+    "products_to_compare": ["DEMO-AC-004", "DEMO-AC-005"],
+    "compare_dimensions": ["价格", "能效等级", "变频技术", "静音效果", "智能功能"],
+    "expected_structured_summary": {
+      "价格": "格力冷静王 4299元 vs 美的锐云 3699元",
+      "能效等级": "两者都为一級能效，格力略优",
+      "变频技术": "格力变频更稳定，美的性价比高",
+      "静音效果": "美的静音模式更低，约18分贝",
+      "智能功能": "都支持智能家居控制"
+    },
+    "better_for_people": {
+      "格力冷静王": ["注重品质", "长时间使用", "愿意多花钱"],
+      "美的锐云": ["追求性价比", "预算有限", "普通家庭"
+      ]
+    },
+    "better_for_scenes": {
+      "格力冷静王": ["主卧", "老人房", "静音需求"],
+      "美的锐云": ["客厅", "小户型", "一般家庭"
+      ]
+    }
+  }
+]

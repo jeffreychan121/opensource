@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_ai_search_mvp_config_tree" model="ir.ui.view">
+            <field name="name">ai.search.mvp.config.tree</field>
+            <field name="model">ai.search.mvp.config</field>
+            <field name="arch" type="xml">
+                <tree create="0" delete="0" edit="1">
+                    <field name="name"/>
+                    <field name="enable_ai_search"/>
+                    <field name="dify_api_base_url"/>
+                    <field name="dify_app_id"/>
+                    <field name="search_top_k"/>
+                    <field name="debug_mode"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_ai_search_mvp_config_form" model="ir.ui.view">
+            <field name="name">ai.search.mvp.config.form</field>
+            <field name="model">ai.search.mvp.config</field>
+            <field name="arch" type="xml">
+                <form string="AI 搜索 MVP 配置">
+                    <sheet>
+                        <group string="功能开关">
+                            <field name="enable_ai_search"/>
+                            <field name="enable_fallback"/>
+                            <field name="enable_logging"/>
+                            <field name="debug_mode"/>
+                        </group>
+                        <group string="Dify API 配置">
+                            <field name="dify_api_base_url"/>
+                            <field name="dify_api_key" password="True"/>
+                            <field name="dify_app_id"/>
+                            <field name="dify_timeout"/>
+                        </group>
+                        <group string="内部搜索接口">
+                            <field name="internal_token"/>
+                        </group>
+                        <group string="搜索参数">
+                            <field name="search_top_k"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_ai_search_mvp_config" model="ir.actions.act_window">
+            <field name="name">AI 搜索 MVP 配置</field>
+            <field name="res_model">ai.search.mvp.config</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+    </data>
+</odoo>

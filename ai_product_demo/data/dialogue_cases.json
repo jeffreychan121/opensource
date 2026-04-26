@@ -1,0 +1,418 @@
+[
+  {
+    "id": "dialogue_phone_001",
+    "category": "手机",
+    "user_turns": [
+      {"role": "user", "content": "我想买一部手机"},
+      {"role": "user", "content": "主要用来打游戏"},
+      {"role": "user", "content": "预算5000左右"},
+      {"role": "user", "content": "希望拍照也要好"}
+    ],
+    "system_should_ask": [
+      "您更看重哪个品牌的手机？",
+      "对内存和存储有要求吗？",
+      "还有其他需求吗？"
+    ],
+    "structure_after_each_turn": {
+      "turn_1": {"intent": "买手机", "category": "手机"},
+      "turn_2": {"intent": "打游戏", "scenes": ["游戏"]},
+      "turn_3": {"intent": "预算5000", "price_range": [4000, 6000]},
+      "turn_4": {"intent": "拍照好", "requirement": "高像素,光学防抖"}
+    },
+    "candidate_products": ["DEMO-PHONE-001", "DEMO-PHONE-004", "DEMO-PHONE-011"],
+    "final_recommendation_reason": "小米14 Pro 5G智能手机：骁龙8 Gen3处理器保证游戏流畅，徕卡5000万主摄满足拍照需求，4999元价格在预算范围内"
+  },
+  {
+    "id": "dialogue_phone_002",
+    "category": "手机",
+    "user_turns": [
+      {"role": "user", "content": "有什么适合商务人士的手机推荐吗"},
+      {"role": "user", "content": "最好是大品牌的"},
+      {"role": "user", "content": "不考虑苹果"},
+      {"role": "user", "content": "预算在8000-10000"}
+    ],
+    "system_should_ask": [
+      "您更倾向于华为还是其他国产品牌？",
+      "需要折叠屏吗？",
+      "对拍照有特别要求吗？"
+    ],
+    "structure_after_each_turn": {
+      "turn_1": {"intent": "商务手机", "target_people": "商务人士"},
+      "turn_2": {"intent": "大品牌", "brand_preference": "高端品牌"},
+      "turn_3": {"intent": "不要苹果", "exclude_brand": "苹果"},
+      "turn_4": {"intent": "预算8000-10000", "price_range": [8000, 10000]}
+    },
+    "candidate_products": ["DEMO-PHONE-006", "DEMO-PHONE-007", "DEMO-PHONE-009"],
+    "final_recommendation_reason": "华为Mate 60 Pro+：麒麟9000S芯片，XMAGE影像，卫星通话功能，国产旗舰品牌，非常适合商务人士"
+  },
+  {
+    "id": "dialogue_phone_003",
+    "category": "手机",
+    "user_turns": [
+      {"role": "user", "content": "给父母买手机怎么选"},
+      {"role": "user", "content": "他们不太会用智能机"},
+      {"role": "user", "content": "屏幕大一点好"},
+      {"role": "user", "content": "预算2000左右"}
+    ],
+    "system_should_ask": [
+      "父母平时用手机做什么比较多？",
+      "需要帮忙设置吗？",
+      "对品牌有偏好吗？"
+    ],
+    "structure_after_each_turn": {
+      "turn_1": {"intent": "给父母买", "target_people": "老年人"},
+      "turn_2": {"intent": "不太会用", "requirement": "简单易用"},
+      "turn_3": {"intent": "屏幕大", "requirement": "大屏幕"},
+      "turn_4": {"intent": "预算2000", "price_range": [1500, 2500]}
+    },
+    "candidate_products": ["DEMO-PHONE-003", "DEMO-PHONE-005", "DEMO-PHONE-018"],
+    "final_recommendation_reason": "小米Redmi Note 13 Pro+：2亿像素主摄拍照清晰，120W快充充电快，屏幕大性价比高，适合给父母使用"
+  },
+  {
+    "id": "dialogue_phone_004",
+    "category": "手机",
+    "user_turns": [
+      {"role": "user", "content": "女生用什么手机好"},
+      {"role": "user", "content": "喜欢拍照和自拍"},
+      {"role": "user", "content": "外观要好看"},
+      {"role": "user", "content": "预算3000-4000"}
+    ],
+    "system_should_ask": [
+      "您更喜欢国产还是国际品牌？",
+      "对手机颜色有要求吗？",
+      "经常自拍还是后置拍照多？"
+    ],
+    "structure_after_each_turn": {
+      "turn_1": {"intent": "女生手机", "target_people": "女性用户"},
+      "turn_2": {"intent": "拍照自拍", "scenes": ["拍照", "自拍"]},
+      "turn_3": {"intent": "外观好看", "requirement": "时尚设计"},
+      "turn_4": {"intent": "预算3000-4000", "price_range": [3000, 4000]}
+    },
+    "candidate_products": ["DEMO-PHONE-008", "DEMO-PHONE-016", "DEMO-PHONE-017"],
+    "final_recommendation_reason": "华为nova 12 Pro：6000万前置双摄自拍旗舰，100W快充，外观时尚，适合追求自拍效果的年轻女性"
+  },
+  {
+    "id": "dialogue_phone_005",
+    "category": "手机",
+    "user_turns": [
+      {"role": "user", "content": "想换个旗舰手机"},
+      {"role": "user", "content": "现在是小米用户"},
+      {"role": "user", "content": "对拍照要求很高"},
+      {"role": "user", "content": "想体验一下华为"}
+    ],
+    "system_should_ask": [
+      "您现在用的小米是什么型号？",
+      "主要拍什么类型的照片？",
+      "预算大概多少？"
+    ],
+    "structure_after_each_turn": {
+      "turn_1": {"intent": "换旗舰", "scenes": ["旗舰"]},
+      "turn_2": {"intent": "小米用户", "current_brand": "小米"},
+      "turn_3": {"intent": "拍照要求高", "requirement": "顶级拍照"},
+      "turn_4": {"intent": "想体验华为", "target_brand": "华为"}
+    },
+    "candidate_products": ["DEMO-PHONE-007", "DEMO-PHONE-002"],
+    "final_recommendation_reason": "华为Pura 70 Ultra：可伸缩主摄+XMAGE超光变影像系统，拍照效果顶级，适合从米粉转华为的用户"
+  },
+  {
+    "id": "dialogue_earphone_001",
+    "category": "蓝牙耳机",
+    "user_turns": [
+      {"role": "user", "content": "想买个无线耳机"},
+      {"role": "user", "content": "主要用于通勤路上听歌"},
+      {"role": "user", "content": "降噪效果要好"},
+      {"role": "user", "content": "预算1500左右"}
+    ],
+    "system_should_ask": [
+      "您用的是苹果还是安卓手机？",
+      "更看重音质还是降噪？",
+      "喜欢入耳式还是头戴式？"
+    ],
+    "structure_after_each_turn": {
+      "turn_1": {"intent": "买无线耳机", "category": "蓝牙耳机"},
+      "turn_2": {"intent": "通勤听歌", "scenes": ["通勤", "音乐"]},
+      "turn_3": {"intent": "降噪要好", "requirement": "主动降噪"},
+      "turn_4": {"intent": "预算1500", "price_range": [1000, 2000]}
+    },
+    "candidate_products": ["DEMO-EAR-001", "DEMO-EAR-002", "DEMO-EAR-004"],
+    "final_recommendation_reason": "索尼WF-1000XM5：顶级降噪效果，优秀音质，通勤神器，1899元在预算范围内"
+  },
+  {
+    "id": "dialogue_earphone_002",
+    "category": "蓝牙耳机",
+    "user_turns": [
+      {"role": "user", "content": "推荐个运动耳机"},
+      {"role": "user", "content": "跑步的时候戴"},
+      {"role": "user", "content": "最好不容易掉"},
+      {"role": "user", "content": "防水很重要"}
+    ],
+    "system_should_ask": [
+      "您喜欢什么佩戴方式的耳机？",
+      "预算大概是多少？",
+      "对音质有要求吗？"
+    ],
+    "structure_after_each_turn": {
+      "turn_1": {"intent": "运动耳机", "category": "蓝牙耳机", "scenes": ["运动"]},
+      "turn_2": {"intent": "跑步戴", "scenes": ["跑步"]},
+      "turn_3": {"intent": "不容易掉", "requirement": "佩戴稳固"},
+      "turn_4": {"intent": "防水重要", "requirement": "防水"}
+    },
+    "candidate_products": ["DEMO-EAR-005", "DEMO-EAR-006", "DEMO-EAR-007"],
+    "final_recommendation_reason": "Powerbeats Pro：耳挂式设计运动超级稳固，IPX5防水，9小时续航，专为运动设计"
+  },
+  {
+    "id": "dialogue_earphone_003",
+    "category": "蓝牙耳机",
+    "user_turns": [
+      {"role": "user", "content": "我是苹果手机用户"},
+      {"role": "user", "content": "想买个耳机配手机用"},
+      {"role": "user", "content": "预算2000以内"},
+      {"role": "user", "content": "要方便在设备间切换"}
+    ],
+    "system_should_ask": [
+      "您更看重降噪还是音质？",
+      "需要头戴式还是入耳式？",
+      "有长时间佩戴需求吗？"
+    ],
+    "structure_after_each_turn": {
+      "turn_1": {"intent": "苹果用户", "current_brand": "苹果"},
+      "turn_2": {"intent": "配手机", "ecosystem": "苹果生态"},
+      "turn_3": {"intent": "预算2000内", "price_range": [1500, 2000]},
+      "turn_4": {"intent": "设备切换", "requirement": "多设备切换"}
+    },
+    "candidate_products": ["DEMO-EAR-004", "DEMO-EAR-013"],
+    "final_recommendation_reason": "AirPods Pro 2：完美支持苹果生态，无缝切换，顶级降噪，1899元性价比很高"
+  },
+  {
+    "id": "dialogue_laptop_001",
+    "category": "笔记本",
+    "user_turns": [
+      {"role": "user", "content": "想买台办公用的笔记本"},
+      {"role": "user", "content": "经常需要出差携带"},
+      {"role": "user", "content": "续航要长一点"},
+      {"role": "user", "content": "预算8000左右"}
+    ],
+    "system_should_ask": [
+      "您主要处理什么类型的办公任务？",
+      "需要独立显卡吗？",
+      "对屏幕尺寸有要求吗？"
+    ],
+    "structure_after_each_turn": {
+      "turn_1": {"intent": "办公笔记本", "category": "笔记本", "scenes": ["办公"]},
+      "turn_2": {"intent": "出差携带", "scenes": ["便携"]},
+      "turn_3": {"intent": "续航长", "requirement": "长续航"},
+      "turn_4": {"intent": "预算8000", "price_range": [6000, 10000]}
+    },
+    "candidate_products": ["DEMO-LAPTOP-001", "DEMO-LAPTOP-002", "DEMO-LAPTOP-012"],
+    "final_recommendation_reason": "ThinkPad X1 Carbon：超级轻薄（1.12kg），续航长达15小时，专为商务出行设计，8999元物有所值"
+  },
+  {
+    "id": "dialogue_laptop_002",
+    "category": "笔记本",
+    "user_turns": [
+      {"role": "user", "content": "给大学生推荐个笔记本"},
+      {"role": "user", "content": "学计算机专业的"},
+      {"role": "user", "content": "偶尔会打游戏"},
+      {"role": "user", "content": "预算6000左右"}
+    ],
+    "system_should_ask": [
+      "主要玩什么类型的游戏？",
+      "对屏幕刷新率有要求吗？",
+      "需要多大内存？"
+    ],
+    "structure_after_each_turn": {
+      "turn_1": {"intent": "大学生笔记本", "target_people": "学生"},
+      "turn_2": {"intent": "计算机专业", "scenes": ["编程", "学习"]},
+      "turn_3": {"intent": "偶尔游戏", "scenes": ["游戏"]},
+      "turn_4": {"intent": "预算6000", "price_range": [5000, 7000]}
+    },
+    "candidate_products": ["DEMO-LAPTOP-010", "DEMO-LAPTOP-011", "DEMO-LAPTOP-002"],
+    "final_recommendation_reason": "联想小新Pro14：13代酷睿标压处理器，2.8K高刷屏幕，续航出色，既能编程又能轻度游戏，5699元性价比高"
+  },
+  {
+    "id": "dialogue_laptop_003",
+    "category": "笔记本",
+    "user_turns": [
+      {"role": "user", "content": "做视频剪辑用什么笔记本好"},
+      {"role": "user", "content": "主要是PR和达芬奇"},
+      {"role": "user", "content": "屏幕色彩要准"},
+      {"role": "user", "content": "预算15000左右"}
+    ],
+    "system_should_ask": [
+      "您是专业剪辑师还是业余爱好？",
+      "需要多大容量的存储？",
+      "考虑苹果还是Windows？"
+    ],
+    "structure_after_each_turn": {
+      "turn_1": {"intent": "视频剪辑", "scenes": ["设计", "创意"]},
+      "turn_2": {"intent": "PR和达芬奇", "requirement": "专业软件"},
+      "turn_3": {"intent": "色彩准", "requirement": "高色准屏幕"},
+      "turn_4": {"intent": "预算15000", "price_range": [12000, 18000]}
+    },
+    "candidate_products": ["DEMO-LAPTOP-012", "DEMO-LAPTOP-013", "DEMO-LAPTOP-007"],
+    "final_recommendation_reason": "MacBook Pro 14：M3 Pro芯片性能强劲，XDR显示屏色彩精准，续航长久，非常适合专业视频剪辑"
+  },
+  {
+    "id": "dialogue_ac_001",
+    "category": "空调",
+    "user_turns": [
+      {"role": "user", "content": "家里要装空调"},
+      {"role": "user", "content": "客厅大概30平米"},
+      {"role": "user", "content": "要省电的"},
+      {"role": "user", "content": "预算5000左右"}
+    ],
+    "system_should_ask": [
+      "您家客厅朝向是哪里？",
+      "需要冷暖两用吗？",
+      "对品牌有偏好吗？"
+    ],
+    "structure_after_each_turn": {
+      "turn_1": {"intent": "装空调", "category": "空调"},
+      "turn_2": {"intent": "客厅30平", "requirement": "大匹数"},
+      "turn_3": {"intent": "要省电", "requirement": "节能"},
+      "turn_4": {"intent": "预算5000", "price_range": [4000, 6000]}
+    },
+    "candidate_products": ["DEMO-AC-001", "DEMO-AC-002", "DEMO-AC-004"],
+    "final_recommendation_reason": "格力云锦：3匹一级能效，节能省电，制冷快，适合30平米客厅，3299元性价比不错"
+  },
+  {
+    "id": "dialogue_ac_002",
+    "category": "空调",
+    "user_turns": [
+      {"role": "user", "content": "卧室装什么空调好"},
+      {"role": "user", "content": "房间大概15平米"},
+      {"role": "user", "content": "静音效果要好"},
+      {"role": "user", "content": "有推荐吗"}
+    ],
+    "system_should_ask": [
+      "您的预算是多少？",
+      "需要冷暖两用吗？",
+      "对品牌有偏好吗？"
+    ],
+    "structure_after_each_turn": {
+      "turn_1": {"intent": "卧室空调", "category": "空调"},
+      "turn_2": {"intent": "15平米", "requirement": "小1.5匹"},
+      "turn_3": {"intent": "静音", "requirement": "低噪音"},
+      "turn_4": {"intent": "求推荐", "intent": "寻求推荐"}
+    },
+    "candidate_products": ["DEMO-AC-003", "DEMO-AC-005", "DEMO-AC-007"],
+    "final_recommendation_reason": "美的风观：1.5匹适合15平米卧室，超静音模式约18分贝，一级能效省电，2799元性价比高"
+  },
+  {
+    "id": "dialogue_appliance_001",
+    "category": "小家电",
+    "user_turns": [
+      {"role": "user", "content": "吹风机有什么好推荐"},
+      {"role": "user", "content": "头发比较毛躁"},
+      {"role": "user", "content": "希望吹完顺滑一点"},
+      {"role": "user", "content": "预算500左右"}
+    ],
+    "system_should_ask": [
+      "您更看重护发还是干发速度？",
+      "在家用还是旅行用？",
+      "对噪音敏感吗？"
+    ],
+    "structure_after_each_turn": {
+      "turn_1": {"intent": "吹风机推荐", "category": "小家电"},
+      "turn_2": {"intent": "头发毛躁", "requirement": "护发"},
+      "turn_3": {"intent": "希望顺滑", "requirement": "负离子,柔顺"},
+      "turn_4": {"intent": "预算500", "price_range": [300, 700]}
+    },
+    "candidate_products": ["DEMO-HD-002", "DEMO-HD-003"],
+    "final_recommendation_reason": "追觅P10高速吹风机：负离子护发技术，快速干发，轻便设计，699元性价比高，适合改善毛躁发质"
+  },
+  {
+    "id": "dialogue_appliance_002",
+    "category": "小家电",
+    "user_turns": [
+      {"role": "user", "content": "想买台扫地机器人"},
+      {"role": "user", "content": "家里有宠物毛发比较多"},
+      {"role": "user", "content": "希望拖地也要干净"},
+      {"role": "user", "content": "预算4000左右"}
+    ],
+    "system_should_ask": [
+      "您家房间面积大概多大？",
+      "地面材质是什么（地板/地砖/地毯）？",
+      "对避障能力有要求吗？"
+    ],
+    "structure_after_each_turn": {
+      "turn_1": {"intent": "扫地机器人", "category": "小家电"},
+      "turn_2": {"intent": "有宠物", "scenes": ["养宠物"]},
+      "turn_3": {"intent": "拖地干净", "requirement": "扫拖一体"},
+      "turn_4": {"intent": "预算4000", "price_range": [3000, 5000]}
+    },
+    "candidate_products": ["DEMO-ROBOT-001", "DEMO-ROBOT-002", "DEMO-ROBOT-003"],
+    "final_recommendation_reason": "科沃斯X2：扫拖一体，强大吸力适合清理宠物毛发，先进导航避免宠物惊吓，4999元高端选择"
+  },
+  {
+    "id": "dialogue_appliance_003",
+    "category": "小家电",
+    "user_turns": [
+      {"role": "user", "content": "空气净化器有用吗"},
+      {"role": "user", "content": "新装修的房子"},
+      {"role": "user", "content": "有小孩子"},
+      {"role": "user", "content": "想除甲醛"}
+    ],
+    "system_should_ask": [
+      "您家房间面积大概多大？",
+      "装修完多久了？",
+      "预算范围是多少？"
+    ],
+    "structure_after_each_turn": {
+      "turn_1": {"intent": "空气净化器", "category": "小家电"},
+      "turn_2": {"intent": "新装修", "scenes": ["新装修"]},
+      "turn_3": {"intent": "有小孩", "target_people": "有小孩家庭"},
+      "turn_4": {"intent": "除甲醛", "requirement": "除甲醛"}
+    },
+    "candidate_products": ["DEMO-AP-001", "DEMO-AP-002", "DEMO-AP-003"],
+    "final_recommendation_reason": "戴森HP09：除甲醛效果显著，适合新装修房子，带有甲醛数显，守护家人健康，虽然价格较高但物有所值"
+  },
+  {
+    "id": "dialogue_comprehensive_001",
+    "category": "手机",
+    "user_turns": [
+      {"role": "user", "content": "我想换部手机"},
+      {"role": "user", "content": "现在用华为Mate 30"},
+      {"role": "user", "content": "习惯了鸿蒙系统"},
+      {"role": "user", "content": "预算6000左右"},
+      {"role": "user", "content": "最好能跟平板协同"}
+    ],
+    "system_should_ask": [
+      "您现在用的是华为平板吗？",
+      "对拍照有要求吗？",
+      "需要5G吗？"
+    ],
+    "structure_after_each_turn": {
+      "turn_1": {"intent": "换手机", "category": "手机"},
+      "turn_2": {"intent": "华为老用户", "current_brand": "华为"},
+      "turn_3": {"intent": "鸿蒙系统", "ecosystem": "鸿蒙生态"},
+      "turn_4": {"intent": "预算6000", "price_range": [5000, 7000]},
+      "turn_5": {"intent": "平板协同", "requirement": "多设备协同"}
+    },
+    "candidate_products": ["DEMO-PHONE-007", "DEMO-PHONE-008", "DEMO-PHONE-006"],
+    "final_recommendation_reason": "华为nova 12 Pro：鸿蒙系统完美协同，麒麟芯片性能强劲，100W快充，适合从Mate系列升级的华为用户"
+  },
+  {
+    "id": "dialogue_gift_001",
+    "category": "数码",
+    "user_turns": [
+      {"role": "user", "content": "想给男朋友买个礼物"},
+      {"role": "user", "content": "他喜欢玩游戏"},
+      {"role": "user", "content": "手机或者耳机都行"},
+      {"role": "user", "content": "预算3000"}
+    ],
+    "system_should_ask": [
+      "他现在是用什么手机？",
+      "有喜欢的品牌吗？",
+      "耳机的话有偏好吗？"
+    ],
+    "structure_after_each_turn": {
+      "turn_1": {"intent": "送男朋友礼物", "scenes": ["送礼"]},
+      "turn_2": {"intent": "喜欢游戏", "target_people": "游戏玩家"},
+      "turn_3": {"intent": "手机或耳机", "category": "手机,耳机"},
+      "turn_4": {"intent": "预算3000", "price_range": [2500, 3500]}
+    },
+    "candidate_products": ["DEMO-PHONE-004", "DEMO-EAR-010", "DEMO-EAR-011"],
+    "final_recommendation_reason": "小米Redmi K70 Pro：骁龙8 Gen3旗舰芯片，游戏性能强劲，3299元性价比高，是送给游戏男友的好选择"
+  }
+]

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Client Action for AI Search Page -->
+    <record id="action_ai_search_mvp_page" model="ir.actions.client">
+        <field name="name">AI 搜索 MVP</field>
+        <field name="tag">ai_dify_search_mvp_page</field>
+        <field name="target">main</field>
+    </record>
+
+    <!-- Menu: AI Search MVP Root -->
+    <menuitem id="menu_ai_search_mvp_root"
+              name="AI 搜索 MVP"
+              sequence="100"
+              web_icon="ai_dify_search_mvp,static/description/icon.png"/>
+
+    <!-- Menu: AI Search Page -->
+    <menuitem id="menu_ai_search_mvp_page"
+              name="AI 搜索 MVP"
+              parent="menu_ai_search_mvp_root"
+              action="action_ai_search_mvp_page"
+              sequence="1"/>
+
+    <!-- Menu: AI Search Config -->
+    <menuitem id="menu_ai_search_mvp_config"
+              name="AI 搜索配置"
+              parent="menu_ai_search_mvp_root"
+              action="action_ai_search_mvp_config"
+              sequence="2"/>
+
+</odoo>

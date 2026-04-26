@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="ai_dify_config_view_tree" model="ir.ui.view">
+            <field name="name">ai.dify.config.tree</field>
+            <field name="model">ai.dify.config</field>
+            <field name="arch" type="xml">
+                <tree create="0" delete="0" edit="1">
+                    <field name="name"/>
+                    <field name="ai_search_enabled"/>
+                    <field name="dify_api_base_url"/>
+                    <field name="dify_app_id"/>
+                    <field name="search_top_k"/>
+                    <field name="debug_mode"/>
+                </tree>
+            </field>
+        </record>
+        <record id="ai_dify_config_view_form" model="ir.ui.view">
+            <field name="name">ai.dify.config.form</field>
+            <field name="model">ai.dify.config</field>
+            <field name="arch" type="xml">
+                <form string="Dify 配置">
+                    <sheet>
+                        <group string="功能开关">
+                            <field name="ai_search_enabled"/>
+                            <field name="ai_search_log_enabled"/>
+                            <field name="debug_mode"/>
+                        </group>
+                        <group string="Dify API 配置">
+                            <field name="dify_api_base_url"/>
+                            <field name="dify_api_key" password="True"/>
+                            <field name="dify_app_id"/>
+                            <field name="dify_compare_base_url"/>
+                            <field name="dify_compare_api_key" password="True"/>
+                            <field name="dify_compare_app_id"/>
+                            <field name="dify_user_prefix"/>
+                            <field name="dify_timeout"/>
+                        </group>
+                        <group string="搜索参数">
+                            <group string="内部搜索接口">
+                                <field name="internal_search_token"/>
+                            </group>
+                            <group string="商品数量">
+                                <field name="search_top_k"/>
+                            </group>
+                        </group>
+                        <group string="功能配置">
+                            <field name="vector_search_enabled"/>
+                            <field name="vector_search_limit"/>
+                            <field name="fallback_enabled"/>
+                            <field name="followup_enabled"/>
+                            <field name="search_cache_ttl"/>
+                            <field name="session_expire_hours"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="ai_dify_config_action" model="ir.actions.act_window">
+            <field name="name">Dify 配置</field>
+            <field name="res_model">ai.dify.config</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        <menuitem id="ai_dify_config_menu"
+                  name="Dify 配置"
+                  parent="ai_search_menu_root"
+                  action="ai_dify_config_action"
+                  sequence="90"/>
+    </data>
+</odoo>

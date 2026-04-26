@@ -1,0 +1,385 @@
+.o_ai_search_mvp_container {
+    font-family: 'Lucida Grande', Ubuntu, Arial, Verdana, sans-serif;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+
+    // ===== SEARCH HERO - Compact 1/5 height =====
+    .ai-search-mvp-header {
+        flex: 0 0 20%;
+        max-height: 20vh;
+        min-height: 120px;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        padding: 12px 24px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        .search-hero {
+            .search-title {
+                font-size: 16px;
+                color: rgba(255, 255, 255, 0.9);
+                margin-bottom: 8px;
+                font-weight: normal;
+            }
+
+            .search-input-row {
+                display: flex;
+                gap: 8px;
+                align-items: center;
+                max-width: 700px;
+
+                .search-input-wrapper {
+                    flex: 1;
+
+                    .search-input {
+                        width: 100%;
+                        padding: 10px 14px;
+                        border: none;
+                        border-radius: 6px;
+                        font-size: 14px;
+                        outline: none;
+                    }
+                }
+
+                .ai-mode-toggle {
+                    display: flex;
+                    align-items: center;
+                    gap: 6px;
+                    padding: 0 8px;
+
+                    .toggle-label {
+                        font-size: 12px;
+                        font-weight: bold;
+                        color: rgba(255, 255, 255, 0.9);
+                    }
+
+                    .toggle-switch {
+                        position: relative;
+                        width: 40px;
+                        height: 22px;
+                        background: rgba(255, 255, 255, 0.3);
+                        border-radius: 11px;
+                        cursor: pointer;
+                        transition: background 0.3s;
+
+                        .toggle-slider {
+                            position: absolute;
+                            top: 2px;
+                            left: 2px;
+                            width: 18px;
+                            height: 18px;
+                            background: white;
+                            border-radius: 50%;
+                            transition: transform 0.3s;
+                        }
+
+                        &.active {
+                            background: #4ade80;
+
+                            .toggle-slider {
+                                transform: translateX(18px);
+                            }
+                        }
+                    }
+                }
+
+                .search-btn {
+                    padding: 10px 20px;
+                    background: white;
+                    color: #667eea;
+                    border: none;
+                    border-radius: 6px;
+                    font-size: 14px;
+                    font-weight: bold;
+                    cursor: pointer;
+                    white-space: nowrap;
+
+                    &:hover {
+                        background: #f8f9fa;
+                    }
+
+                    &:disabled {
+                        opacity: 0.7;
+                        cursor: not-allowed;
+                    }
+                }
+            }
+        }
+    }
+
+    // ===== MAIN CONTENT - Takes remaining 4/5 =====
+    .main-content {
+        flex: 1;
+        overflow-y: auto;
+        padding: 12px 16px;
+
+        // Loading State
+        .state-loading {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            min-height: 200px;
+
+            .loading-spinner {
+                width: 40px;
+                height: 40px;
+                border: 3px solid #f3f3f3;
+                border-top: 3px solid #667eea;
+                border-radius: 50%;
+                animation: spin 1s linear infinite;
+            }
+
+            .loading-text {
+                color: #666;
+                font-size: 14px;
+                margin-top: 12px;
+            }
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        // Error State
+        .state-error {
+            text-align: center;
+            padding: 40px;
+
+            .error-icon {
+                font-size: 36px;
+                margin-bottom: 12px;
+            }
+
+            h3 {
+                color: #dc3545;
+                margin-bottom: 8px;
+                font-size: 16px;
+            }
+
+            p {
+                color: #666;
+                font-size: 14px;
+            }
+        }
+
+        // Intent Chips
+        .parsed-intent-chips {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-bottom: 10px;
+
+            .intent-chip {
+                padding: 4px 10px;
+                border-radius: 12px;
+                font-size: 12px;
+
+                &.chip-category {
+                    background: #e7f3ff;
+                    color: #0066cc;
+                }
+
+                &.chip-budget {
+                    background: #fff3e7;
+                    color: #cc6600;
+                }
+
+                &.chip-keyword {
+                    background: #f0f0f0;
+                    color: #333;
+                }
+            }
+        }
+
+        // Results Header
+        .results-header {
+            margin-bottom: 10px;
+            color: #333;
+            font-size: 13px;
+        }
+
+        // Products Grid - Dense layout
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+            gap: 12px;
+            margin-bottom: 12px;
+
+            .product-card {
+                background: white;
+                border-radius: 6px;
+                overflow: hidden;
+                box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+                transition: box-shadow 0.2s;
+
+                &:hover {
+                    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+                }
+
+                .product-image {
+                    height: 120px;
+                    background: #f8f9fa;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+
+                    img {
+                        max-width: 100%;
+                        max-height: 100%;
+                        object-fit: contain;
+                    }
+                }
+
+                .product-info {
+                    padding: 8px;
+
+                    .product-sku {
+                        display: inline-block;
+                        font-size: 10px;
+                        color: #888;
+                        background: #f5f5f5;
+                        padding: 1px 4px;
+                        border-radius: 3px;
+                        margin-bottom: 4px;
+                    }
+
+                    .product-name {
+                        font-size: 12px;
+                        font-weight: bold;
+                        margin-bottom: 4px;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                        white-space: nowrap;
+                    }
+
+                    .product-short-desc {
+                        font-size: 11px;
+                        color: #666;
+                        margin-bottom: 6px;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                        display: -webkit-box;
+                        -webkit-line-clamp: 2;
+                        -webkit-box-orient: vertical;
+                        height: 30px;
+                    }
+
+                    .product-price-row {
+                        .product-price {
+                            color: #059669;
+                            font-size: 14px;
+                            font-weight: bold;
+                        }
+                    }
+                }
+            }
+        }
+
+        // AI Summary
+        .ai-summary {
+            background: #f8f9fa;
+            border-radius: 6px;
+            padding: 10px 12px;
+            margin-bottom: 10px;
+
+            .summary-label {
+                font-weight: bold;
+                font-size: 12px;
+                margin-bottom: 4px;
+                color: #333;
+            }
+
+            .summary-text {
+                color: #666;
+                font-size: 12px;
+                line-height: 1.5;
+            }
+        }
+
+        // Fallback Warning
+        .fallback-warning {
+            background: #fff3e7;
+            border: 1px solid #ffcc99;
+            border-radius: 6px;
+            padding: 8px 12px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            color: #cc6600;
+            font-size: 12px;
+            margin-bottom: 10px;
+
+            .warning-icon {
+                font-size: 14px;
+            }
+        }
+
+        // Empty State
+        .state-empty {
+            text-align: center;
+            padding: 40px;
+
+            .empty-icon {
+                font-size: 36px;
+                margin-bottom: 12px;
+            }
+
+            h3 {
+                color: #333;
+                margin-bottom: 8px;
+                font-size: 14px;
+            }
+
+            p {
+                color: #666;
+                font-size: 12px;
+            }
+        }
+
+        // Idle State
+        .state-idle {
+            text-align: center;
+            padding: 40px;
+
+            .idle-illustration {
+                position: relative;
+                width: 60px;
+                height: 60px;
+                margin: 0 auto 16px;
+
+                .illustration-circle {
+                    width: 60px;
+                    height: 60px;
+                    border-radius: 50%;
+                    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                    opacity: 0.2;
+                }
+
+                .illustration-icon {
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    font-size: 24px;
+                    margin: 0;
+                }
+            }
+
+            h2 {
+                color: #333;
+                margin-bottom: 8px;
+                font-size: 16px;
+            }
+
+            p {
+                color: #666;
+                font-size: 12px;
+            }
+        }
+    }
+}

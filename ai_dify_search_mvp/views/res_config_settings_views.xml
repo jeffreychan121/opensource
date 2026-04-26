@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_res_config_settings_form_inherit_ai_search_mvp" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.inherit.ai.search.mvp</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="base_setup.view_general_configuration"/>
+        <field name="arch" type="xml">
+            <xpath expr="//form[1]/sheet[1]/group[1]" position="after">
+                <group string="AI 搜索 MVP">
+                    <field name="enable_ai_search_mvp"/>
+                </group>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>
